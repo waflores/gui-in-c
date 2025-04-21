@@ -4,7 +4,7 @@
   ...
 }:
 pkgs.mkShell.override { stdenv = pkgs.clangStdenv; } rec {
-  name = "m4kc-shell";
+  name = "gui-shell";
   xorgDeps = with pkgs.xorg; [
     libX11
     libXrender
@@ -31,10 +31,14 @@ pkgs.mkShell.override { stdenv = pkgs.clangStdenv; } rec {
   packages =
     with pkgs;
     [
-      # keep-sorted start
-      SDL2
-      SDL2.dev
+      # keep-sorted start block=yes case=no
+      (python3.withPackages (
+        python-pkgs: with python-pkgs; [
+          venvShellHook
+        ]
+      ))
       bashInteractive
+      compiledb
       clang
       clang-tools
       direnv
@@ -48,6 +52,8 @@ pkgs.mkShell.override { stdenv = pkgs.clangStdenv; } rec {
       ninja
       nix-output-monitor
       pkg-config
+      SDL2
+      SDL2.dev
       tree
       vim
       # keep-sorted end

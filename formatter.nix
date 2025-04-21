@@ -5,6 +5,7 @@ inputs.treefmt-nix.lib.mkWrapper pkgs {
 
   programs = {
     # keep-sorted start
+    clang-format.enable = true;
     deadnix.enable = true;
     dos2unix.enable = true;
     keep-sorted.enable = true;
