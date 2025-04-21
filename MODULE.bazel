@@ -1,0 +1,8 @@
+module(name = "guis-in-c")
+
+bazel_dep(name = "rules_nixpkgs_core", version = "0.13.0")
+
+# bazel_dep(name = "rules_cc", version = "0.1.1")
+
+# GTK Dependency
+# bazel_dep(name = "glib", version = "2.82.2.bcr.5")

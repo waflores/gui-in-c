@@ -3,8 +3,11 @@ inputs.treefmt-nix.lib.mkWrapper pkgs {
   # Used to find the project root
   projectRootFile = ".git/config";
 
+  # See this for options:
+  # https://github.com/numtide/treefmt-nix/tree/8d404a69efe76146368885110f29a2ca3700bee6/programs
   programs = {
     # keep-sorted start
+    buildifier.enable = true;
     clang-format.enable = true;
     deadnix.enable = true;
     dos2unix.enable = true;
