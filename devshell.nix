@@ -38,6 +38,7 @@ pkgs.mkShell.override { stdenv = pkgs.clangStdenv; } rec {
         ]
       ))
       bashInteractive
+      bazelisk
       compiledb
       clang
       clang-tools
