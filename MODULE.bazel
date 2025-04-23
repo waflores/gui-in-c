@@ -18,7 +18,7 @@ nix_pkg.attr(
 package(default_visibility = [ "//visibility:public" ])
 filegroup(
     name = "include",
-    srcs = glob(["include/**/*.h"])
+    srcs = ["@gtk4.dev//:include"]
 )
 
 cc_library(
