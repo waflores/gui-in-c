@@ -1,0 +1,7 @@
+# Have a look at this: https://github.com/tweag/rules_nixpkgs/blob/master/examples/toolchains/cc_with_deps/WORKSPACE
+
+cc_binary(
+    name = "hello-world-gtk",
+    srcs = ["hello-world-gtk.c"],
+    deps = ["@gtk4.dev//:lib"],
+)

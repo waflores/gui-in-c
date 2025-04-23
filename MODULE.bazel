@@ -2,7 +2,32 @@ module(name = "guis-in-c")
 
 bazel_dep(name = "rules_nixpkgs_core", version = "0.13.0")
 
-# bazel_dep(name = "rules_cc", version = "0.1.1")
+nix_repo = use_extension("@rules_nixpkgs_core//extensions:repository.bzl", "nix_repo")
+nix_repo.http(
+    name = "nixpkgs",
+    strip_prefix = "nixpkgs-b107b36e150478e05bd06d50bcc4f2218df0257f",
+    url = "https://github.com/NixOS/nixpkgs/archive/b107b36e150478e05bd06d50bcc4f2218df0257f.tar.gz",
+)
+use_repo(nix_repo, "nixpkgs")
 
-# GTK Dependency
-bazel_dep(name = "glib", version = "2.82.2.bcr.5")
+nix_pkg = use_extension("@rules_nixpkgs_core//extensions:package.bzl", "nix_pkg")
+nix_pkg.attr(
+    attr = "gtk4.dev",
+    build_file_content = """
+package(default_visibility = [ "//visibility:public" ])
+load("@rules_cc//cc:defs.bzl", "cc_library")
+filegroup(
+    name = "include",
+    srcs = glob(["include/**/*.h", "include/**/*.hpp"]),
+)
+cc_library(
+    name = "gtk4",
+    srcs = ["@gtk4.dev//:lib"],
+    hdrs = [":include"],
+    strip_include_prefix = "include",
+)
+""",
+)
+use_repo(nix_pkg, "gtk4.dev")
+
+# Look at this: https://github.com/tweag/rules_nixpkgs/blob/a425ed7865b769c5508507ac8b3817feebe3eed7/testing/core/MODULE.bazel#L50
