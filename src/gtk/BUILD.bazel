@@ -3,5 +3,5 @@
 cc_binary(
     name = "hello-world-gtk",
     srcs = ["hello-world-gtk.c"],
-    deps = ["@gtk4.dev//:lib"],
+    deps = ["@gtk4.dev//:gtk4"],
 )

@@ -1,5 +1,6 @@
 module(name = "guis-in-c")
 
+bazel_dep(name = "rules_cc", version = "0.1.1")
 bazel_dep(name = "rules_nixpkgs_core", version = "0.13.0")
 
 nix_repo = use_extension("@rules_nixpkgs_core//extensions:repository.bzl", "nix_repo")
@@ -15,16 +16,14 @@ nix_pkg.attr(
     attr = "gtk4.dev",
     build_file_content = """
 package(default_visibility = [ "//visibility:public" ])
-load("@rules_cc//cc:defs.bzl", "cc_library")
 filegroup(
     name = "include",
-    srcs = glob(["include/**/*.h", "include/**/*.hpp"]),
+    srcs = glob(["include/**/*.h"])
 )
+
 cc_library(
     name = "gtk4",
-    srcs = ["@gtk4.dev//:lib"],
-    hdrs = [":include"],
-    strip_include_prefix = "include",
+    srcs = [":include"],
 )
 """,
 )
