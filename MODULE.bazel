@@ -12,21 +12,36 @@ nix_repo.http(
 use_repo(nix_repo, "nixpkgs")
 
 nix_pkg = use_extension("@rules_nixpkgs_core//extensions:package.bzl", "nix_pkg")
-nix_pkg.attr(
-    attr = "gtk4.dev",
-    build_file_content = """
-package(default_visibility = [ "//visibility:public" ])
-filegroup(
-    name = "include",
-    srcs = ["@gtk4.dev//:include"]
-)
+# nix_pkg.attr(
+#     attr = "gtk4.dev",
+#     build_file_content = """
+# cc_library(
+#     name = "gtk4",
+#     srcs = glob(["include/gtk-4.0/**/*.h"]),
+#     visibility = ["//visibility:public"],
+# )
+# """,
+# )
+# use_repo(nix_pkg, "gtk4.dev")
 
+nix_pkg.expr(
+    name = "boost",
+    attr = "",
+    repo = "@nixpkgs",
+    expr = """
+let pkgs = import <nixpkgs> {}; in
+pkgs.symlinkJoin { name = "boost"; paths = with pkgs; [ boost boost.dev ]; }""",
+    build_file_content = """
 cc_library(
-    name = "gtk4",
-    srcs = [":include"],
+    name = "boost",
+    srcs = glob(["lib/*.so*"]),
+    hdrs = glob(["include/boost/**/*.h", "include/boost/**/*.hpp", "include/boost/**/*.ipp"]),
+    includes = ["include"],
+    visibility = ["//visibility:public"],
 )
 """,
 )
-use_repo(nix_pkg, "gtk4.dev")
+use_repo(nix_pkg, "boost")
 
 # Look at this: https://github.com/tweag/rules_nixpkgs/blob/a425ed7865b769c5508507ac8b3817feebe3eed7/testing/core/MODULE.bazel#L50
+# https://github.com/egen/disruptor/blob/aec36d22cf53bf8f941d84b82cf5e0f43b01c02b/projects/bzl7/MODULE.bazel#L5
