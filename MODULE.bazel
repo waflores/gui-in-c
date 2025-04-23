@@ -2,6 +2,7 @@ module(name = "guis-in-c")
 
 bazel_dep(name = "rules_cc", version = "0.1.1")
 bazel_dep(name = "rules_nixpkgs_core", version = "0.13.0")
+bazel_dep(name = "glib", version = "2.82.2.bcr.5")
 
 nix_repo = use_extension("@rules_nixpkgs_core//extensions:repository.bzl", "nix_repo")
 nix_repo.http(
@@ -12,17 +13,25 @@ nix_repo.http(
 use_repo(nix_repo, "nixpkgs")
 
 nix_pkg = use_extension("@rules_nixpkgs_core//extensions:package.bzl", "nix_pkg")
-# nix_pkg.attr(
-#     attr = "gtk4.dev",
-#     build_file_content = """
-# cc_library(
-#     name = "gtk4",
-#     srcs = glob(["include/gtk-4.0/**/*.h"]),
-#     visibility = ["//visibility:public"],
-# )
-# """,
-# )
-# use_repo(nix_pkg, "gtk4.dev")
+nix_pkg.expr(
+    name = "gtk4",
+    attr = "",
+    repo = "@nixpkgs",
+    expr = """
+let pkgs = import <nixpkgs> {}; in
+pkgs.symlinkJoin { name = "gtk4"; paths = with pkgs; [ gtk4 gtk4.dev ]; }""",
+    build_file_content = """
+cc_library(
+    name = "gtk4",
+    srcs = glob(["lib/*.so*"]),
+    hdrs = glob(["include/gtk-4.0/**/*.h"]),
+    includes = ["include"],
+    strip_include_prefix = "include/gtk-4.0",
+    visibility = ["//visibility:public"],
+)
+""",
+)
+use_repo(nix_pkg, "gtk4")
 
 nix_pkg.expr(
     name = "boost",
@@ -42,6 +51,20 @@ cc_library(
 """,
 )
 use_repo(nix_pkg, "boost")
+
+# Hedron's Compile Commands Extractor for Bazel
+# https://github.com/hedronvision/bazel-compile-commands-extractor
+bazel_dep(name = "hedron_compile_commands", dev_dependency = True)
+git_override(
+    module_name = "hedron_compile_commands",
+    remote = "https://github.com/hedronvision/bazel-compile-commands-extractor.git",
+    commit = "4f28899228fb3ad0126897876f147ca15026151e",
+    # Replace the commit hash (above) with the latest (https://github.com/hedronvision/bazel-compile-commands-extractor/commits/main).
+    # Even better, set up Renovate and let it do the work for you (see "Suggestion: Updates" in the README).
+)
+# bazel run @hedron_compile_commands//:refresh_all
+
+
 
 # Look at this: https://github.com/tweag/rules_nixpkgs/blob/a425ed7865b769c5508507ac8b3817feebe3eed7/testing/core/MODULE.bazel#L50
 # https://github.com/egen/disruptor/blob/aec36d22cf53bf8f941d84b82cf5e0f43b01c02b/projects/bzl7/MODULE.bazel#L5
