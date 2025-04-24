@@ -3,6 +3,7 @@ common --enable_platform_specific_config --repo_env=LC_ALL="en_US.UTF-8"
 # Enable Bzlmod for every Bazel command
 common --enable_bzlmod
 
+
 # Local Bazel Build Event Upload Services
 build:bezel --remote_cache=grpc://127.0.0.1:9090
 build:bezel --bes_backend=grpc://127.0.0.1:8085
