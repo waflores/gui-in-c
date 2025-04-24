@@ -54,3 +54,4 @@ dkms.conf
 # Nix/Direnv files
 /.direnv/
 /.vscode/
+bazel-*
