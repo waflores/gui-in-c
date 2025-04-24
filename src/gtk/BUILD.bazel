@@ -3,5 +3,15 @@
 cc_binary(
     name = "hello-world-gtk",
     srcs = ["hello-world-gtk.c"],
-    deps = ["@gtk4//:gtk4", "@glib//glib", "@glib//gobject", "@glib//gio"],
+    deps = [
+        "@cairo",
+        "@gdk-pixbuf",
+        "@glib//gio",
+        "@glib//glib",
+        "@glib//gobject",
+        "@graphene",
+        "@gtk4",
+        "@harfbuzz",
+        "@pango",
+    ],
 )
