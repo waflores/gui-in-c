@@ -7,8 +7,8 @@ bazel_dep(name = "glib", version = "2.82.2.bcr.5")
 nix_repo = use_extension("@rules_nixpkgs_core//extensions:repository.bzl", "nix_repo")
 nix_repo.http(
     name = "nixpkgs",
-    strip_prefix = "nixpkgs-b107b36e150478e05bd06d50bcc4f2218df0257f",
-    url = "https://github.com/NixOS/nixpkgs/archive/b107b36e150478e05bd06d50bcc4f2218df0257f.tar.gz",
+    strip_prefix = "nixpkgs-5cfaab2c5c1492cbec3e5e85a4dca8601858a06a",
+    url = "https://github.com/NixOS/nixpkgs/archive/5cfaab2c5c1492cbec3e5e85a4dca8601858a06a.tar.gz",
 )
 use_repo(nix_repo, "nixpkgs")
 

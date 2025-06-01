@@ -8,26 +8,26 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1742457865,
-        "narHash": "sha256-pSs0DuhXhXgjpIj+R+KitAcFYbHTiHmMqdYYhVPI4+Q=",
+        "lastModified": 1744632722,
+        "narHash": "sha256-0chvqUV1Kzf8BMQ7MsH3CeicJEb2HeCpwliS77FGyfc=",
         "type": "tarball",
-        "url": "https://github.com/numtide/blueprint/archive/7ae8756a68c662d551e354beb537f365b80e5108.tar.gz"
+        "url": "https://github.com/numtide/blueprint/archive/49bbd5d072b577072f4a1d07d4b0621ecce768af.tar.gz"
       },
       "original": {
         "type": "tarball",
-        "url": "https://github.com/numtide/blueprint/archive/7ae8756a68c662d551e354beb537f365b80e5108.tar.gz"
+        "url": "https://github.com/numtide/blueprint/archive/49bbd5d072b577072f4a1d07d4b0621ecce768af.tar.gz"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1742988026,
-        "narHash": "sha256-aofgJZ4GypThgHU79KuWbs1c/9+B/JkVGZ1NYAtBSp4=",
+        "lastModified": 1745544479,
+        "narHash": "sha256-2fJNCP93U06MN47/ROnZT0yia5h29WcTqaDorHI52o0=",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/b107b36e150478e05bd06d50bcc4f2218df0257f.tar.gz"
+        "url": "https://github.com/NixOS/nixpkgs/archive/5cfaab2c5c1492cbec3e5e85a4dca8601858a06a.tar.gz"
       },
       "original": {
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/b107b36e150478e05bd06d50bcc4f2218df0257f.tar.gz"
+        "url": "https://github.com/NixOS/nixpkgs/archive/5cfaab2c5c1492cbec3e5e85a4dca8601858a06a.tar.gz"
       }
     },
     "root": {
@@ -59,14 +59,14 @@
         ]
       },
       "locked": {
-        "lastModified": 1742370146,
-        "narHash": "sha256-XRE8hL4vKIQyVMDXykFh4ceo3KSpuJF3ts8GKwh5bIU=",
+        "lastModified": 1744961264,
+        "narHash": "sha256-aRmUh0AMwcbdjJHnytg1e5h5ECcaWtIFQa6d9gI85AI=",
         "type": "tarball",
-        "url": "https://github.com/numtide/treefmt-nix/archive/adc195eef5da3606891cedf80c0d9ce2d3190808.tar.gz"
+        "url": "https://github.com/numtide/treefmt-nix/archive/8d404a69efe76146368885110f29a2ca3700bee6.tar.gz"
       },
       "original": {
         "type": "tarball",
-        "url": "https://github.com/numtide/treefmt-nix/archive/adc195eef5da3606891cedf80c0d9ce2d3190808.tar.gz"
+        "url": "https://github.com/numtide/treefmt-nix/archive/8d404a69efe76146368885110f29a2ca3700bee6.tar.gz"
       }
     }
   },
