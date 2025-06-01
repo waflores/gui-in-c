@@ -4,12 +4,20 @@ bazel_dep(name = "rules_cc", version = "0.1.1")
 bazel_dep(name = "rules_nixpkgs_core", version = "0.13.0")
 bazel_dep(name = "glib", version = "2.82.2.bcr.5")
 
+RULES_NIXPKGS_COMMIT = "5cfaab2c5c1492cbec3e5e85a4dca8601858a06a"
+
 nix_repo = use_extension("@rules_nixpkgs_core//extensions:repository.bzl", "nix_repo")
-nix_repo.http(
+nix_repo.file(
     name = "nixpkgs",
-    strip_prefix = "nixpkgs-5cfaab2c5c1492cbec3e5e85a4dca8601858a06a",
-    url = "https://github.com/NixOS/nixpkgs/archive/5cfaab2c5c1492cbec3e5e85a4dca8601858a06a.tar.gz",
+    file = "//:flake.nix",
+    file_deps = ["//:flake.lock"],
 )
+
+# nix_repo.http(
+#     name = "nixpkgs",
+#     strip_prefix = "nixpkgs-{}".format(RULES_NIXPKGS_COMMIT),
+#     url = "https://github.com/NixOS/nixpkgs/archive/{}.tar.gz".format(RULES_NIXPKGS_COMMIT),
+# )
 use_repo(nix_repo, "nixpkgs")
 
 nix_pkg = use_extension("@rules_nixpkgs_core//extensions:package.bzl", "nix_pkg")

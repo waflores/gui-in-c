@@ -528,19 +528,20 @@
     "@@rules_nixpkgs_core+//extensions:repository.bzl%nix_repo": {
       "general": {
         "bzlTransitiveDigest": "dTTtWNdwe7E4j77oKh1mHI1qtdxfaVSGSZa1oPf2QjU=",
-        "usagesDigest": "hBkapeF2OktMktqmgbBb2A/fTCd4wdHby3ofG7qR4l4=",
+        "usagesDigest": "H88LPry7/nY89msnbp1CRPXWPI7K327swni+GkN4rU0=",
         "recordedFileInputs": {},
         "recordedDirentsInputs": {},
         "envVariables": {},
         "generatedRepoSpecs": {
           "nixpkgs": {
-            "repoRuleId": "@@rules_nixpkgs_core+//:nixpkgs.bzl%_nixpkgs_http_repository",
+            "repoRuleId": "@@rules_nixpkgs_core+//:nixpkgs.bzl%_nixpkgs_local_repository",
             "attributes": {
               "unmangled_name": "nixpkgs",
-              "url": "https://github.com/NixOS/nixpkgs/archive/5cfaab2c5c1492cbec3e5e85a4dca8601858a06a.tar.gz",
-              "strip_prefix": "nixpkgs-5cfaab2c5c1492cbec3e5e85a4dca8601858a06a",
-              "integrity": "",
-              "sha256": ""
+              "nix_file": "@@//:flake.nix",
+              "nix_file_deps": [
+                "@@//:flake.lock"
+              ],
+              "nix_file_content": ""
             }
           }
         },
