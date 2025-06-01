@@ -528,7 +528,7 @@
     "@@rules_nixpkgs_core+//extensions:repository.bzl%nix_repo": {
       "general": {
         "bzlTransitiveDigest": "dTTtWNdwe7E4j77oKh1mHI1qtdxfaVSGSZa1oPf2QjU=",
-        "usagesDigest": "H88LPry7/nY89msnbp1CRPXWPI7K327swni+GkN4rU0=",
+        "usagesDigest": "RqlOJL5JNPL2lr/uEs2uGPsLvY2+Xnoxs/Yiko3uBac=",
         "recordedFileInputs": {},
         "recordedDirentsInputs": {},
         "envVariables": {},
@@ -537,11 +537,11 @@
             "repoRuleId": "@@rules_nixpkgs_core+//:nixpkgs.bzl%_nixpkgs_local_repository",
             "attributes": {
               "unmangled_name": "nixpkgs",
-              "nix_file": "@@//:flake.nix",
               "nix_file_deps": [
+                "@@//:nixpkgs.nix",
                 "@@//:flake.lock"
               ],
-              "nix_file_content": ""
+              "nix_file_content": "import ./nixpkgs.nix"
             }
           }
         },
@@ -564,7 +564,7 @@
     },
     "@@rules_python+//python/private/pypi:pip.bzl%pip_internal": {
       "general": {
-        "bzlTransitiveDigest": "hvKweoM9/zduyw8QX3arHXJQWZdHQBLRU6qcww8Z0So=",
+        "bzlTransitiveDigest": "sCGUUdVOVATRPlKd1IJea1kfLmtsYsAZdVI5HkdAUQo=",
         "usagesDigest": "OLoIStnzNObNalKEMRq99FqenhPGLFZ5utVLV4sz7OI=",
         "recordedFileInputs": {
           "@@rules_python+//tools/publish/requirements_darwin.txt": "2994136eab7e57b083c3de76faf46f70fad130bc8e7360a7fed2b288b69e79dc",
