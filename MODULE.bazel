@@ -1,161 +1,166 @@
 module(name = "guis-in-c")
 
-bazel_dep(name = "rules_cc", version = "0.1.1")
-bazel_dep(name = "rules_nixpkgs_core", version = "0.13.0")
 bazel_dep(name = "glib", version = "2.82.2.bcr.5")
-
-RULES_NIXPKGS_COMMIT = "5cfaab2c5c1492cbec3e5e85a4dca8601858a06a"
+bazel_dep(name = "rules_nixpkgs_core", version = "0.13.0")
 
 nix_repo = use_extension("@rules_nixpkgs_core//extensions:repository.bzl", "nix_repo")
-nix_repo.expr(
+nix_repo.file(
     name = "nixpkgs",
-    expr = "import ./nixpkgs.nix",
+    file = "//:nixpkgs.nix",
     file_deps = [
-        "//:nixpkgs.nix",
         "//:flake.lock",
     ],
 )
 use_repo(nix_repo, "nixpkgs")
 
-nix_pkg = use_extension("@rules_nixpkgs_core//extensions:package.bzl", "nix_pkg")
-nix_pkg.expr(
-    name = "gtk4",
-    attr = "",
-    build_file_content = """
-cc_library(
-    name = "gtk4",
-    srcs = glob(["lib/*.so*"]),
-    hdrs = glob(["include/gtk-4.0/**/*.h"]),
-    includes = ["include"],
-    strip_include_prefix = "include/gtk-4.0",
-    visibility = ["//visibility:public"],
-)
-""",
-    expr = """
-let pkgs = import <nixpkgs> {}; in
-pkgs.symlinkJoin { name = "gtk4"; paths = with pkgs; [ gtk4 gtk4.dev ]; }""",
-    repo = "@nixpkgs",
-)
-use_repo(nix_pkg, "gtk4")
+bazel_dep(name = "rules_nixpkgs_cc")
 
-nix_pkg.expr(
-    name = "boost",
-    attr = "",
-    build_file_content = """
-cc_library(
-    name = "boost",
-    srcs = glob(["lib/*.so*"]),
-    hdrs = glob(["include/boost/**/*.h", "include/boost/**/*.hpp", "include/boost/**/*.ipp"]),
-    includes = ["include"],
-    visibility = ["//visibility:public"],
+# Replace by archive_override to download a rules_nixpkgs_cc revision.
+# (rules_nixpkgs_cc is not available on the BCR, yet.)
+#
+archive_override(
+    module_name = "rules_nixpkgs_cc",
+    integrity = "sha256-MCcfe9OA5OIOTXEywySUbE/bwx6+C7tmOKD2GjfnQ5c=",
+    strip_prefix = "rules_nixpkgs-0.13.0/toolchains/cc",
+    urls = ["https://github.com/tweag/rules_nixpkgs/releases/download/v0.13.0/rules_nixpkgs-0.13.0.tar.gz"],
 )
-""",
-    expr = """
-let pkgs = import <nixpkgs> {}; in
-pkgs.symlinkJoin { name = "boost"; paths = with pkgs; [ boost boost.dev ]; }""",
-    repo = "@nixpkgs",
-)
-use_repo(nix_pkg, "boost")
 
-nix_pkg.expr(
-    name = "cairo",
-    attr = "",
-    build_file_content = """
-cc_library(
-    name = "cairo",
-    srcs = glob(["lib/*.so*"]),
-    hdrs = glob(["include/**/*.h"]),
-    includes = ["include"],
-    strip_include_prefix = "include/cairo",
-    visibility = ["//visibility:public"],
-)
-""",
-    expr = """
-let pkgs = import <nixpkgs> {}; in
-pkgs.symlinkJoin { name = "cairo"; paths = with pkgs; [ cairo cairo.dev ]; }""",
-    repo = "@nixpkgs",
-)
-use_repo(nix_pkg, "cairo")
+bazel_dep(name = "bazel_skylib", version = "1.7.1")
+bazel_dep(name = "rules_cc", version = "0.1.1")
 
-nix_pkg.expr(
-    name = "pango",
-    attr = "",
-    build_file_content = """
-cc_library(
-    name = "pango",
-    srcs = glob(["lib/*.so*"]),
-    hdrs = glob(["include/**/*.h"]),
-    includes = ["include"],
-    strip_include_prefix = "include/pango-1.0",
-    visibility = ["//visibility:public"],
-)
-""",
-    expr = """
-let pkgs = import <nixpkgs> {}; in
-pkgs.symlinkJoin { name = "pango"; paths = with pkgs; [ pango pango.dev ]; }""",
-    repo = "@nixpkgs",
-)
-use_repo(nix_pkg, "pango")
-
-nix_pkg.expr(
-    name = "harfbuzz",
-    attr = "",
-    build_file_content = """
-cc_library(
-    name = "harfbuzz",
-    srcs = glob(["lib/*.so*"]),
-    hdrs = glob(["include/**/*.h"]),
-    includes = ["include"],
-    strip_include_prefix = "include/harfbuzz",
-    visibility = ["//visibility:public"],
-)
-""",
-    expr = """
-let pkgs = import <nixpkgs> {}; in
-pkgs.symlinkJoin { name = "harfbuzz"; paths = with pkgs; [ harfbuzz harfbuzz.dev ]; }""",
-    repo = "@nixpkgs",
-)
-use_repo(nix_pkg, "harfbuzz")
-
-nix_pkg.expr(
-    name = "gdk-pixbuf",
-    attr = "",
-    build_file_content = """
-cc_library(
-    name = "gdk-pixbuf",
-    srcs = glob(["lib/*.so*"]),
-    hdrs = glob(["include/**/*.h"]),
-    includes = ["include"],
-    strip_include_prefix = "include/gdk-pixbuf-2.0",
-    visibility = ["//visibility:public"],
-)
-""",
-    expr = """
-let pkgs = import <nixpkgs> {}; in
-pkgs.symlinkJoin { name = "gdk-pixbuf"; paths = with pkgs; [ gdk-pixbuf gdk-pixbuf.dev ]; }""",
-    repo = "@nixpkgs",
-)
-use_repo(nix_pkg, "gdk-pixbuf")
-
-nix_pkg.expr(
-    name = "graphene",
-    attr = "",
-    build_file_content = """
-cc_library(
-    name = "graphene",
-    srcs = glob(["lib/*.so*", "lib/graphene-1.0/include/graphene-config.h"]),
-    hdrs = glob(["include/**/*.h"]),
-    includes = ["include", "lib/graphene-1.0/include"],
-    strip_include_prefix = "include/graphene-1.0",
-    visibility = ["//visibility:public"],
-)
-""",
-    expr = """
-let pkgs = import <nixpkgs> {}; in
-pkgs.symlinkJoin { name = "graphene"; paths = with pkgs; [ graphene graphene.dev ]; }""",
-    repo = "@nixpkgs",
-)
-use_repo(nix_pkg, "graphene")
+# nix_pkg = use_extension("@rules_nixpkgs_core//extensions:package.bzl", "nix_pkg")
+# nix_pkg.expr(
+#     name = "gtk4",
+#     attr = "",
+#     build_file_content = """
+# cc_library(
+#     name = "gtk4",
+#     srcs = glob(["lib/*.so*"]),
+#     hdrs = glob(["include/gtk-4.0/**/*.h"]),
+#     includes = ["include"],
+#     strip_include_prefix = "include/gtk-4.0",
+#     visibility = ["//visibility:public"],
+# )
+# """,
+#     expr = """
+# let pkgs = import <nixpkgs> {}; in
+# pkgs.symlinkJoin { name = "gtk4"; paths = with pkgs; [ gtk4 gtk4.dev ]; }""",
+#     repo = "@nixpkgs",
+# )
+# use_repo(nix_pkg, "gtk4")
+# nix_pkg.expr(
+#     name = "boost",
+#     attr = "",
+#     build_file_content = """
+# cc_library(
+#     name = "boost",
+#     srcs = glob(["lib/*.so*"]),
+#     hdrs = glob(["include/boost/**/*.h", "include/boost/**/*.hpp", "include/boost/**/*.ipp"]),
+#     includes = ["include"],
+#     visibility = ["//visibility:public"],
+# )
+# """,
+#     expr = """
+# let pkgs = import <nixpkgs> {}; in
+# pkgs.symlinkJoin { name = "boost"; paths = with pkgs; [ boost boost.dev ]; }""",
+#     repo = "@nixpkgs",
+# )
+# use_repo(nix_pkg, "boost")
+# nix_pkg.expr(
+#     name = "cairo",
+#     attr = "",
+#     build_file_content = """
+# cc_library(
+#     name = "cairo",
+#     srcs = glob(["lib/*.so*"]),
+#     hdrs = glob(["include/**/*.h"]),
+#     includes = ["include"],
+#     strip_include_prefix = "include/cairo",
+#     visibility = ["//visibility:public"],
+# )
+# """,
+#     expr = """
+# let pkgs = import <nixpkgs> {}; in
+# pkgs.symlinkJoin { name = "cairo"; paths = with pkgs; [ cairo cairo.dev ]; }""",
+#     repo = "@nixpkgs",
+# )
+# use_repo(nix_pkg, "cairo")
+# nix_pkg.expr(
+#     name = "pango",
+#     attr = "",
+#     build_file_content = """
+# cc_library(
+#     name = "pango",
+#     srcs = glob(["lib/*.so*"]),
+#     hdrs = glob(["include/**/*.h"]),
+#     includes = ["include"],
+#     strip_include_prefix = "include/pango-1.0",
+#     visibility = ["//visibility:public"],
+# )
+# """,
+#     expr = """
+# let pkgs = import <nixpkgs> {}; in
+# pkgs.symlinkJoin { name = "pango"; paths = with pkgs; [ pango pango.dev ]; }""",
+#     repo = "@nixpkgs",
+# )
+# use_repo(nix_pkg, "pango")
+# nix_pkg.expr(
+#     name = "harfbuzz",
+#     attr = "",
+#     build_file_content = """
+# cc_library(
+#     name = "harfbuzz",
+#     srcs = glob(["lib/*.so*"]),
+#     hdrs = glob(["include/**/*.h"]),
+#     includes = ["include"],
+#     strip_include_prefix = "include/harfbuzz",
+#     visibility = ["//visibility:public"],
+# )
+# """,
+#     expr = """
+# let pkgs = import <nixpkgs> {}; in
+# pkgs.symlinkJoin { name = "harfbuzz"; paths = with pkgs; [ harfbuzz harfbuzz.dev ]; }""",
+#     repo = "@nixpkgs",
+# )
+# use_repo(nix_pkg, "harfbuzz")
+# nix_pkg.expr(
+#     name = "gdk-pixbuf",
+#     attr = "",
+#     build_file_content = """
+# cc_library(
+#     name = "gdk-pixbuf",
+#     srcs = glob(["lib/*.so*"]),
+#     hdrs = glob(["include/**/*.h"]),
+#     includes = ["include"],
+#     strip_include_prefix = "include/gdk-pixbuf-2.0",
+#     visibility = ["//visibility:public"],
+# )
+# """,
+#     expr = """
+# let pkgs = import <nixpkgs> {}; in
+# pkgs.symlinkJoin { name = "gdk-pixbuf"; paths = with pkgs; [ gdk-pixbuf gdk-pixbuf.dev ]; }""",
+#     repo = "@nixpkgs",
+# )
+# use_repo(nix_pkg, "gdk-pixbuf")
+# nix_pkg.expr(
+#     name = "graphene",
+#     attr = "",
+#     build_file_content = """
+# cc_library(
+#     name = "graphene",
+#     srcs = glob(["lib/*.so*", "lib/graphene-1.0/include/graphene-config.h"]),
+#     hdrs = glob(["include/**/*.h"]),
+#     includes = ["include", "lib/graphene-1.0/include"],
+#     strip_include_prefix = "include/graphene-1.0",
+#     visibility = ["//visibility:public"],
+# )
+# """,
+#     expr = """
+# let pkgs = import <nixpkgs> {}; in
+# pkgs.symlinkJoin { name = "graphene"; paths = with pkgs; [ graphene graphene.dev ]; }""",
+#     repo = "@nixpkgs",
+# )
+# use_repo(nix_pkg, "graphene")
 
 # Hedron's Compile Commands Extractor for Bazel
 # https://github.com/hedronvision/bazel-compile-commands-extractor
