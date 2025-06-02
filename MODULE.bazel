@@ -13,18 +13,6 @@ nix_repo.file(
 )
 use_repo(nix_repo, "nixpkgs")
 
-bazel_dep(name = "rules_nixpkgs_cc")
-
-# Replace by archive_override to download a rules_nixpkgs_cc revision.
-# (rules_nixpkgs_cc is not available on the BCR, yet.)
-#
-archive_override(
-    module_name = "rules_nixpkgs_cc",
-    integrity = "sha256-MCcfe9OA5OIOTXEywySUbE/bwx6+C7tmOKD2GjfnQ5c=",
-    strip_prefix = "rules_nixpkgs-0.13.0/toolchains/cc",
-    urls = ["https://github.com/tweag/rules_nixpkgs/releases/download/v0.13.0/rules_nixpkgs-0.13.0.tar.gz"],
-)
-
 bazel_dep(name = "bazel_skylib", version = "1.7.1")
 bazel_dep(name = "rules_cc", version = "0.1.1")
 

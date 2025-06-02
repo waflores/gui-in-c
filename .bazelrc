@@ -2,4 +2,3 @@
 common --enable_bzlmod --noenable_workspace
 
 build --host_platform=@rules_nixpkgs_core//platforms:host
-build --crosstool_top=@nixpkgs_config_cc//:toolchain
