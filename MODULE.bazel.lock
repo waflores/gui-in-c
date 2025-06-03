@@ -3055,6 +3055,62 @@
           ]
         ]
       }
+    },
+    "@@rules_qt+//:extensions.bzl%qt": {
+      "general": {
+        "bzlTransitiveDigest": "HgBYAZP+pxb17+ko2U5VMINLN3CGDo68yAvVyqpKfyA=",
+        "usagesDigest": "vJYs5559kII8KvFsg3WjWcJp1GA4hIKiS2B5RfN78Tw=",
+        "recordedFileInputs": {},
+        "recordedDirentsInputs": {},
+        "envVariables": {},
+        "generatedRepoSpecs": {
+          "qt_windows_x86_64": {
+            "repoRuleId": "@@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
+            "attributes": {
+              "urls": [
+                "https://vertexwahn.de/lfs/v1/qt_6.4.0_windows_desktop_win64_msvc2019_64.zip"
+              ],
+              "sha256": "e3c20b441ddd8bb803e46de32bf2fc5563fda125409d62dcd12b5647ae5a9c7e",
+              "strip_prefix": "6.4.0/msvc2019_64",
+              "build_file": "@@rules_qt+//:qt_windows_x86_64.BUILD"
+            }
+          },
+          "qt_linux_x86_64": {
+            "repoRuleId": "@@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
+            "attributes": {
+              "urls": [
+                "https://vertexwahn.de/lfs/v1/qt_6.4.0_linux_desktop_gcc_64.tar.xz"
+              ],
+              "sha256": "809919895e2ac0567df9290676d4ec6cd1ed39c432dc5da0722b3104681fd376",
+              "strip_prefix": "6.4.0/gcc_64",
+              "build_file": "@@rules_qt+//:qt_linux_x86_64.BUILD"
+            }
+          },
+          "qt_mac_aarch64": {
+            "repoRuleId": "@@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
+            "attributes": {
+              "urls": [
+                "https://vertexwahn.de/lfs/v1/qt_6.8.0_mac_aarch64_gamepad.tar.xz"
+              ],
+              "sha256": "07be3436bfb31b3a2e629907ca39a8652febe563046094cdc7373b7ff28228c4",
+              "strip_prefix": "Qt-6.8.0",
+              "build_file": "@@rules_qt+//:qt_mac_aarch64.BUILD"
+            }
+          }
+        },
+        "recordedRepoMappingEntries": [
+          [
+            "rules_qt+",
+            "bazel_tools",
+            "bazel_tools"
+          ],
+          [
+            "rules_qt+",
+            "rules_qt",
+            "rules_qt+"
+          ]
+        ]
+      }
     }
   }
 }

@@ -2,6 +2,7 @@
 common --enable_bzlmod --noenable_workspace
 
 build --host_platform=@rules_nixpkgs_core//platforms:host
+common --noincompatible_disallow_empty_glob
 
 # Super annoying but basically Bazel only uses CC
 # https://github.com/NixOS/nixpkgs/issues/150655

@@ -170,3 +170,23 @@ git_override(
 
 # Look at this: https://github.com/tweag/rules_nixpkgs/blob/a425ed7865b769c5508507ac8b3817feebe3eed7/testing/core/MODULE.bazel#L50
 # https://github.com/egen/disruptor/blob/aec36d22cf53bf8f941d84b82cf5e0f43b01c02b/projects/bzl7/MODULE.bazel#L5
+
+bazel_dep(name = "platforms", version = "0.0.11")
+bazel_dep(name = "rules_qt")
+git_override(
+    module_name = "rules_qt",
+    commit = "f43d76ab1d3b60bd494e871f4f1042a351bfcff8",
+    remote = "https://github.com/Vertexwahn/rules_qt6.git",
+)
+
+qt = use_extension("@rules_qt//:extensions.bzl", "qt")
+qt.fetch()
+use_repo(
+    qt,
+    "qt_linux_x86_64",
+)
+
+register_toolchains(
+    "@rules_qt//tools:all",
+    dev_dependency = True,
+)
