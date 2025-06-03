@@ -43,15 +43,14 @@ pkgs.mkShell.override
         ))
         bashInteractive
         bazel-buildtools
-        cacert
-        nix
-        git
         bazelisk
+        cacert
         clang
         clang-tools
         compiledb
         direnv
         fzf
+        git
         gzip
         jdk8
         libdrm
@@ -59,6 +58,7 @@ pkgs.mkShell.override
         mesa-demos
         mesa.spirv2dxil
         ninja
+        nix
         nix-output-monitor
         pkg-config
         SDL2
