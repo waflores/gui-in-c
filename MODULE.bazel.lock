@@ -383,6 +383,148 @@
         ]
       }
     },
+    "@@rules_nixpkgs_core+//extensions:package.bzl%nix_pkg": {
+      "general": {
+        "bzlTransitiveDigest": "2alEQC7q9PgrArc8ZeI662VmDHLGfuswqnzBJvVDnmg=",
+        "usagesDigest": "/1YS0AKRIgKxL3tX54gLkFVXxWMRcD4oatedLozcGr4=",
+        "recordedFileInputs": {},
+        "recordedDirentsInputs": {},
+        "envVariables": {},
+        "generatedRepoSpecs": {
+          "gtk4": {
+            "repoRuleId": "@@rules_nixpkgs_core+//:nixpkgs.bzl%_nixpkgs_package",
+            "attributes": {
+              "unmangled_name": "gtk4",
+              "attribute_path": "",
+              "nix_file_deps": {},
+              "nix_file_content": "\nlet pkgs = import <nixpkgs> {}; in\npkgs.symlinkJoin { name = \"gtk4\"; paths = with pkgs; [ gtk4 gtk4.dev ]; }",
+              "repository": "@@rules_nixpkgs_core++nix_repo+nixpkgs//:nixpkgs",
+              "repositories": {},
+              "build_file_content": "\ncc_library(\n    name = \"gtk4\",\n    srcs = glob([\"lib/*.so*\"]),\n    hdrs = glob([\"include/gtk-4.0/**/*.h\"]),\n    includes = [\"include\"],\n    strip_include_prefix = \"include/gtk-4.0\",\n    visibility = [\"//visibility:public\"],\n)\n",
+              "nixopts": [],
+              "quiet": false,
+              "fail_not_supported": true
+            }
+          },
+          "boost": {
+            "repoRuleId": "@@rules_nixpkgs_core+//:nixpkgs.bzl%_nixpkgs_package",
+            "attributes": {
+              "unmangled_name": "boost",
+              "attribute_path": "",
+              "nix_file_deps": {},
+              "nix_file_content": "\nlet pkgs = import <nixpkgs> {}; in\npkgs.symlinkJoin { name = \"boost\"; paths = with pkgs; [ boost boost.dev ]; }",
+              "repository": "@@rules_nixpkgs_core++nix_repo+nixpkgs//:nixpkgs",
+              "repositories": {},
+              "build_file_content": "\ncc_library(\n    name = \"boost\",\n    srcs = glob([\"lib/*.so*\"]),\n    hdrs = glob([\"include/boost/**/*.h\", \"include/boost/**/*.hpp\", \"include/boost/**/*.ipp\"]),\n    includes = [\"include\"],\n    visibility = [\"//visibility:public\"],\n)\n",
+              "nixopts": [],
+              "quiet": false,
+              "fail_not_supported": true
+            }
+          },
+          "cairo": {
+            "repoRuleId": "@@rules_nixpkgs_core+//:nixpkgs.bzl%_nixpkgs_package",
+            "attributes": {
+              "unmangled_name": "cairo",
+              "attribute_path": "",
+              "nix_file_deps": {},
+              "nix_file_content": "\nlet pkgs = import <nixpkgs> {}; in\npkgs.symlinkJoin { name = \"cairo\"; paths = with pkgs; [ cairo cairo.dev ]; }",
+              "repository": "@@rules_nixpkgs_core++nix_repo+nixpkgs//:nixpkgs",
+              "repositories": {},
+              "build_file_content": "\ncc_library(\n    name = \"cairo\",\n    srcs = glob([\"lib/*.so*\"]),\n    hdrs = glob([\"include/**/*.h\"]),\n    includes = [\"include\"],\n    strip_include_prefix = \"include/cairo\",\n    visibility = [\"//visibility:public\"],\n)\n",
+              "nixopts": [],
+              "quiet": false,
+              "fail_not_supported": true
+            }
+          },
+          "pango": {
+            "repoRuleId": "@@rules_nixpkgs_core+//:nixpkgs.bzl%_nixpkgs_package",
+            "attributes": {
+              "unmangled_name": "pango",
+              "attribute_path": "",
+              "nix_file_deps": {},
+              "nix_file_content": "\nlet pkgs = import <nixpkgs> {}; in\npkgs.symlinkJoin { name = \"pango\"; paths = with pkgs; [ pango pango.dev ]; }",
+              "repository": "@@rules_nixpkgs_core++nix_repo+nixpkgs//:nixpkgs",
+              "repositories": {},
+              "build_file_content": "\ncc_library(\n    name = \"pango\",\n    hdrs = glob([\"include/**/*.h\"]),\n    includes = [\"include\"],\n    strip_include_prefix = \"include/pango-1.0\",\n    visibility = [\"//visibility:public\"],\n)\n",
+              "nixopts": [],
+              "quiet": false,
+              "fail_not_supported": true
+            }
+          },
+          "harfbuzz": {
+            "repoRuleId": "@@rules_nixpkgs_core+//:nixpkgs.bzl%_nixpkgs_package",
+            "attributes": {
+              "unmangled_name": "harfbuzz",
+              "attribute_path": "",
+              "nix_file_deps": {},
+              "nix_file_content": "\nlet pkgs = import <nixpkgs> {}; in\npkgs.symlinkJoin { name = \"harfbuzz\"; paths = with pkgs; [ harfbuzz harfbuzz.dev ]; }",
+              "repository": "@@rules_nixpkgs_core++nix_repo+nixpkgs//:nixpkgs",
+              "repositories": {},
+              "build_file_content": "\ncc_library(\n    name = \"harfbuzz\",\n    srcs = glob([\"lib/*.so*\"]),\n    hdrs = glob([\"include/**/*.h\"]),\n    includes = [\"include\"],\n    strip_include_prefix = \"include/harfbuzz\",\n    visibility = [\"//visibility:public\"],\n)\n",
+              "nixopts": [],
+              "quiet": false,
+              "fail_not_supported": true
+            }
+          },
+          "gdk-pixbuf": {
+            "repoRuleId": "@@rules_nixpkgs_core+//:nixpkgs.bzl%_nixpkgs_package",
+            "attributes": {
+              "unmangled_name": "gdk-pixbuf",
+              "attribute_path": "",
+              "nix_file_deps": {},
+              "nix_file_content": "\nlet pkgs = import <nixpkgs> {}; in\npkgs.symlinkJoin { name = \"gdk-pixbuf\"; paths = with pkgs; [ gdk-pixbuf gdk-pixbuf.dev ]; }",
+              "repository": "@@rules_nixpkgs_core++nix_repo+nixpkgs//:nixpkgs",
+              "repositories": {},
+              "build_file_content": "\ncc_library(\n    name = \"gdk-pixbuf\",\n    srcs = glob([\"lib/*.so*\"]),\n    hdrs = glob([\"include/**/*.h\"]),\n    includes = [\"include\"],\n    strip_include_prefix = \"include/gdk-pixbuf-2.0\",\n    visibility = [\"//visibility:public\"],\n)\n",
+              "nixopts": [],
+              "quiet": false,
+              "fail_not_supported": true
+            }
+          },
+          "graphene": {
+            "repoRuleId": "@@rules_nixpkgs_core+//:nixpkgs.bzl%_nixpkgs_package",
+            "attributes": {
+              "unmangled_name": "graphene",
+              "attribute_path": "",
+              "nix_file_deps": {},
+              "nix_file_content": "\nlet pkgs = import <nixpkgs> {}; in\npkgs.symlinkJoin { name = \"graphene\"; paths = with pkgs; [ graphene graphene.dev ]; }",
+              "repository": "@@rules_nixpkgs_core++nix_repo+nixpkgs//:nixpkgs",
+              "repositories": {},
+              "build_file_content": "\ncc_library(\n    name = \"graphene\",\n    srcs = glob([\"lib/*.so*\", \"lib/graphene-1.0/include/graphene-config.h\"]),\n    hdrs = glob([\"include/**/*.h\"]),\n    includes = [\"include\", \"lib/graphene-1.0/include\"],\n    strip_include_prefix = \"include/graphene-1.0\",\n    visibility = [\"//visibility:public\"],\n)\n",
+              "nixopts": [],
+              "quiet": false,
+              "fail_not_supported": true
+            }
+          }
+        },
+        "moduleExtensionMetadata": {
+          "explicitRootModuleDirectDeps": [
+            "gtk4",
+            "boost",
+            "cairo",
+            "pango",
+            "harfbuzz",
+            "gdk-pixbuf",
+            "graphene"
+          ],
+          "explicitRootModuleDirectDevDeps": [],
+          "useAllRepos": "NO",
+          "reproducible": false
+        },
+        "recordedRepoMappingEntries": [
+          [
+            "",
+            "nixpkgs",
+            "rules_nixpkgs_core++nix_repo+nixpkgs"
+          ],
+          [
+            "rules_nixpkgs_core+",
+            "bazel_skylib",
+            "bazel_skylib+"
+          ]
+        ]
+      }
+    },
     "@@rules_nixpkgs_core+//extensions:repository.bzl%nix_repo": {
       "general": {
         "bzlTransitiveDigest": "dTTtWNdwe7E4j77oKh1mHI1qtdxfaVSGSZa1oPf2QjU=",
