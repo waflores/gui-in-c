@@ -37,7 +37,6 @@ pkgs.symlinkJoin { name = "gtk4"; paths = with pkgs; [ gtk4 gtk4.dev ]; }""",
     repo = "@nixpkgs",
 )
 use_repo(nix_pkg, "gtk4")
-
 nix_pkg.expr(
     name = "boost",
     attr = "",
@@ -56,7 +55,6 @@ pkgs.symlinkJoin { name = "boost"; paths = with pkgs; [ boost boost.dev ]; }""",
     repo = "@nixpkgs",
 )
 use_repo(nix_pkg, "boost")
-
 nix_pkg.expr(
     name = "cairo",
     attr = "",
@@ -76,7 +74,6 @@ pkgs.symlinkJoin { name = "cairo"; paths = with pkgs; [ cairo cairo.dev ]; }""",
     repo = "@nixpkgs",
 )
 use_repo(nix_pkg, "cairo")
-
 nix_pkg.expr(
     name = "pango",
     attr = "",
@@ -95,7 +92,6 @@ pkgs.symlinkJoin { name = "pango"; paths = with pkgs; [ pango pango.dev ]; }""",
     repo = "@nixpkgs",
 )
 use_repo(nix_pkg, "pango")
-
 nix_pkg.expr(
     name = "harfbuzz",
     attr = "",
@@ -115,7 +111,6 @@ pkgs.symlinkJoin { name = "harfbuzz"; paths = with pkgs; [ harfbuzz harfbuzz.dev
     repo = "@nixpkgs",
 )
 use_repo(nix_pkg, "harfbuzz")
-
 nix_pkg.expr(
     name = "gdk-pixbuf",
     attr = "",
@@ -135,7 +130,6 @@ pkgs.symlinkJoin { name = "gdk-pixbuf"; paths = with pkgs; [ gdk-pixbuf gdk-pixb
     repo = "@nixpkgs",
 )
 use_repo(nix_pkg, "gdk-pixbuf")
-
 nix_pkg.expr(
     name = "graphene",
     attr = "",
@@ -190,3 +184,5 @@ register_toolchains(
     "@rules_qt//tools:all",
     dev_dependency = True,
 )
+
+# TODO(@waflores) 2025-06-03: Figure out how to register clang/gcc properly in the repo
