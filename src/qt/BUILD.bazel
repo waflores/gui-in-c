@@ -5,7 +5,14 @@ qt_cc_binary(
     srcs = ["helloworld.cpp"],
     visibility = ["//visibility:public"],
     deps = [
+        # "@dbus",
+        # "@egl-wayland",
+        # "@fontconfig",
+        # "@glib",
+        # "@libglvnd",
+        # "@libxkbcommon",
         "@rules_qt//:qt_core",
         "@rules_qt//:qt_widgets",
+        # "@zlib",
     ],
 )

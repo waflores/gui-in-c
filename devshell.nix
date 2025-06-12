@@ -9,6 +9,11 @@ pkgs.mkShell.override
   }
   rec {
     name = "gui-shell";
+    nativeBuildInputs = with pkgs.libsForQt5.qt5; [
+      qttools
+      wrapQtAppsHook
+    ];
+
     xorgDeps = with pkgs.xorg; [
       libX11
       libXrender
@@ -48,12 +53,22 @@ pkgs.mkShell.override
         clang
         clang-tools
         compiledb
+        dbus
+        dbus.lib
         direnv
         fzf
         git
+        glib
+        glib.dev
+        glib.out
+        gtk4
+        gtk4.dev
         gzip
         jdk8
         libdrm
+        libglvnd
+        libglvnd.dev
+        libxkbcommon
         mesa
         mesa-demos
         mesa.spirv2dxil
@@ -65,6 +80,8 @@ pkgs.mkShell.override
         SDL2.dev
         tree
         vim
+        zlib
+        zlib.dev
         # keep-sorted end
       ]
       ++ xorgDeps;
