@@ -9,10 +9,6 @@ pkgs.mkShell.override
   }
   rec {
     name = "gui-shell";
-    nativeBuildInputs = with pkgs.libsForQt5.qt5; [
-      qttools
-      wrapQtAppsHook
-    ];
 
     xorgDeps = with pkgs.xorg; [
       libX11
@@ -76,6 +72,12 @@ pkgs.mkShell.override
         nix
         nix-output-monitor
         pkg-config
+        # qt6.full
+        # qt6.qtbase
+        # # this is for the shellhook portion
+        # qt6.wrapQtAppsHook
+        # qt6Packages
+        # qtcreator
         SDL2
         SDL2.dev
         tree

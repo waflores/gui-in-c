@@ -1,5 +1,6 @@
 module(name = "guis-in-c")
 
+bazel_dep(name = "glib", version = "2.82.2.bcr.5")
 bazel_dep(name = "rules_nixpkgs_core", version = "0.13.0")
 
 nix_repo = use_extension("@rules_nixpkgs_core//extensions:repository.bzl", "nix_repo")
@@ -155,24 +156,24 @@ pkgs.symlinkJoin { name = "graphene"; paths = with pkgs; [ graphene graphene.dev
 )
 use_repo(nix_pkg, "graphene")
 
-nix_pkg.expr(
-    name = "glib",
-    attr = "",
-    build_file_content = """
-cc_library(
-    name = "glib",
-    srcs = glob(["lib/*.so.*"], exclude = ["lib/*.py"]),
-    hdrs = glob(["include/**/*.h"]),
-    includes = ["include"],
-    visibility = ["//visibility:public"],
-)
-""",
-    expr = """
-let pkgs = import <nixpkgs> {}; in
-pkgs.symlinkJoin { name = "glib"; paths = with pkgs; [ glib glib.dev glib.out ]; }""",
-    repo = "@nixpkgs",
-)
-use_repo(nix_pkg, "glib")
+# nix_pkg.expr(
+#     name = "glib",
+#     attr = "",
+#     build_file_content = """
+# cc_library(
+#     name = "glib",
+#     srcs = glob(["lib/*.so.*"], exclude = ["lib/*.py"]),
+#     hdrs = glob(["include/**/*.h"]),
+#     includes = ["include"],
+#     visibility = ["//visibility:public"],
+# )
+# """,
+#     expr = """
+# let pkgs = import <nixpkgs> {}; in
+# pkgs.symlinkJoin { name = "glib"; paths = with pkgs; [ glib glib.dev glib.out ]; }""",
+#     repo = "@nixpkgs",
+# )
+# use_repo(nix_pkg, "glib")
 
 nix_pkg.expr(
     name = "zlib",
