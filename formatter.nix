@@ -32,6 +32,10 @@ inputs.treefmt-nix.lib.mkWrapper pkgs {
     "test/*"
     # unsupported extensions
     "*.{gif,png,svg,tape,mts,lock,mod,sum,gitignore,pages}"
+    ".cache/*"
+    ".direnv/*"
+    "bazel-*"
+    "external/*"
   ];
 
   # settings.formatter = {
