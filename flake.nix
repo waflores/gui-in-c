@@ -1,7 +1,7 @@
 {
   description = "gui-in-c";
 
-  # nixConfig.bash-prompt-suffix = "m4kc> ";
+  # nixConfig.bash-prompt-suffix = "guic> ";
 
   inputs = {
     # keep-sorted start
