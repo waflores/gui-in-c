@@ -13,10 +13,28 @@ const std::map<long, std::string> cpp_standards{
     {202612L, "C++26"}};
 // NOTE: not using an = is a kind of constructor
 
+void print_map(std::string_view comment, const std::map<long, std::string> &m) {
+  std::cout << comment;
+  // Iterate using C++17 facilities
+  for (const auto &[key, value] : m)
+    std::cout << '[' << key << "] = " << value << "; ";
+
+  // C++11 alternative:
+  //  for (const auto& n : m)
+  //      std::cout << n.first << " = " << n.second << "; ";
+  //
+  // C++98 alternative:
+  //  for (std::map<std::string, int>::const_iterator it = m.begin(); it !=
+  //  m.end(); ++it)
+  //      std::cout << it->first << " = " << it->second << "; ";
+
+  std::cout << '\n';
+}
+
 long getCPPStandard() {
-  // Visual Studio is non-conforming in support for __cplusplus (unless you set
-  // a specific compiler flag, which you probably haven't) In Visual Studio 2015
-  // or newer we can use _MSVC_LANG instead See
+  // Visual Studio is non-conforming in support for __cplusplus (unless you
+  // set a specific compiler flag, which you probably haven't) In Visual
+  // Studio 2015 or newer we can use _MSVC_LANG instead See
   // https://devblogs.microsoft.com/cppblog/msvc-now-correctly-reports-__cplusplus/
 #if defined(_MSVC_LANG)
   return _MSVC_LANG;
@@ -31,6 +49,7 @@ long getCPPStandard() {
 }
 
 int main() {
+  print_map("1) Initial Map: ", cpp_standards);
   long standard = getCPPStandard();
 
   if (standard == -1) {
