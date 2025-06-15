@@ -18,6 +18,7 @@
  * @return int exit code to operating system
  */
 int main(int argc, char **argv) {
+  (void) argc, (void) argv;  // silence warnings
   std::cout << "Hello world!" << std::endl;
   return 0;
 }

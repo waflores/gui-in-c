@@ -3,6 +3,8 @@ common --enable_bzlmod --noenable_workspace
 
 build --host_platform=@rules_nixpkgs_core//platforms:host
 common --noincompatible_disallow_empty_glob
+# Enable Debug Fission
+common --fission=yes
 
 # Super annoying but basically Bazel only uses CC
 # https://github.com/NixOS/nixpkgs/issues/150655
@@ -10,6 +12,13 @@ build:gcc13 --cxxopt=-xc++
 build:gcc13 --host_cxxopt=-xc++
 
 build:gcc13 --cxxopt=-std=c++20
-build:gcc13 --cxxopt=-Wall
 build:gcc13 --define compiler=gcc13
 build:gcc13 --cxxopt=-fpermissive # Needed for fmt
+
+# Turn on all the strict error checking for CC
+build --cxxopt=-pedantic-errors
+build --cxxopt=-Wall
+build --cxxopt=-Weffc++
+build --cxxopt=-Wextra
+build --cxxopt=-Wconversion
+build --cxxopt=-Wsign-conversion
