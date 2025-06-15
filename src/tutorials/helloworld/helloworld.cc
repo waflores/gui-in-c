@@ -17,8 +17,7 @@
  * @param argv  is an array of char pointers to arguments
  * @return int exit code to operating system
  */
-int main(int argc, char **argv) {
-  (void) argc, (void) argv;  // silence warnings
+int main([[maybe_unused]] int argc, [[maybe_unused]] char **argv) {
   std::cout << "Hello world!" << std::endl;
   return 0;
 }
