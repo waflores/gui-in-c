@@ -6,12 +6,11 @@
 #include <map>
 
 // The C++26 stdCode is a placeholder since the exact code won't be determined
-// until the standard is finalized
+// until the standard is finalized (via Uniform Initialization)
 const std::map<long, std::string> cpp_standards{
     {199711L, "Pre-C++11"}, {201103L, "C++11"}, {201402L, "C++14"},
     {201703L, "C++17"},     {202002L, "C++20"}, {202302L, "C++23"},
     {202612L, "C++26"}};
-// NOTE: not using an = is a kind of constructor
 
 void print_map(std::string_view comment, const std::map<long, std::string> &m) {
   std::cout << comment;
@@ -31,7 +30,7 @@ void print_map(std::string_view comment, const std::map<long, std::string> &m) {
   std::cout << '\n';
 }
 
-long getCPPStandard() {
+long get_cpp_standard() {
   // Visual Studio is non-conforming in support for __cplusplus (unless you
   // set a specific compiler flag, which you probably haven't) In Visual
   // Studio 2015 or newer we can use _MSVC_LANG instead See
@@ -48,9 +47,9 @@ long getCPPStandard() {
 #endif
 }
 
-int main() {
+int main([[maybe_unused]] int argc, [[maybe_unused]] char **argv) {
   print_map("1) Initial Map: ", cpp_standards);
-  long standard = getCPPStandard();
+  long standard = get_cpp_standard();
 
   if (standard == -1) {
     std::cout << "Error: Unable to determine your language standard.  Sorry.\n";
