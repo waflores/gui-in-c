@@ -8,8 +8,10 @@ common --fission=yes
 common --compilation_mode=dbg
 
 # Turn on all the strict error checking for CC
+common --copt=-g3  # Add more debug stuff
+common --copt=-pedantic-errors
+
 common --cxxopt=-std=c++23
-common --cxxopt=-pedantic-errors
 common --cxxopt=-Weffc++
 common --cxxopt=-Wextra
 common --cxxopt=-Wconversion
@@ -17,4 +19,4 @@ common --cxxopt=-Wsign-conversion
 common --cxxopt=-Werror
 
 # C Options
-common --conlyopt=-std=c23
+common --conlyopt=-std=c23  # Needed for c programs and not angering c++ ones

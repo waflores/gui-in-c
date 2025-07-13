@@ -8,6 +8,8 @@
  * @copyright Copyright (c) 2025
  *
  */
+#include <cstdint>
+#include <format>
 #include <iostream>
 
 /**
@@ -19,5 +21,9 @@
  */
 int main([[maybe_unused]] int argc, [[maybe_unused]] char **argv) {
   std::cout << "Hello world!" << std::endl;
-  return 0;
+  for (auto i : {1, 2, 4, 8, 16, 32, 64, 128}) {
+    std::cout << std::format("{0:<3} = {0:08b}", i) << '\n';
+  }
+
+  return EXIT_SUCCESS;
 }
