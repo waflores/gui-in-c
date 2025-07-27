@@ -1,2 +1,6 @@
 # Skip stuff from Direnv
 .direnv/
+
+# See: https://github.com/bazel-contrib/vscode-bazel/issues/216
+#   and: https://github.com/bazelbuild/bazel/issues/10653
+bazel-*

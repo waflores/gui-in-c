@@ -53,6 +53,7 @@ pkgs.mkShell.override
         dbus.lib
         direnv
         fzf
+        gdb
         git
         glib
         glib.dev
