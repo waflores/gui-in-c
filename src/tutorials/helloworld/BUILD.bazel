@@ -9,3 +9,7 @@ cc_binary(
     name = "cast_operator",
     srcs = ["expre_CastOperator.cpp"],
 )
+
+cc_binary(
+    name = "fancy_bitset", srcs = ["fancy_bitset.cpp"]
+)
