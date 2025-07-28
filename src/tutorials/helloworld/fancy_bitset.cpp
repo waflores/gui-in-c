@@ -12,6 +12,7 @@
 #include <bitset>
 #include <cstddef>
 #include <iostream>
+#include <string>
 
 /**
  * @brief A class which represents a bit array for each element that's present
@@ -22,17 +23,28 @@
 class PresentAndAccountedFor : public std::bitset<8> {
 public:
   reference alice() { return operator[](0); }
+  bool alice() const { return operator[](0); }
+
   reference bob() { return operator[](1); }
+  bool bob() const { return operator[](1); }
+
   reference charlie() { return operator[](2); }
+  bool charlie() const { return operator[](2); }
+
   reference dave() { return operator[](3); }
+  bool dave() const { return operator[](3); }
+
   reference eve() { return operator[](4); }
+  bool eve() const { return operator[](4); }
+
   reference frank() { return operator[](5); }
+  bool frank() const { return operator[](5); }
+
   reference grace() { return operator[](6); }
+  bool grace() const { return operator[](6); }
+
   reference heidi() { return operator[](7); }
-
-  void take_attendance() {
-
-  }
+  bool heidi() const { return operator[](7); }
 };
 
 int main([[maybe_unused]] int argc, [[maybe_unused]] char **argv) {
@@ -66,7 +78,6 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char **argv) {
   if (!nodes.bob()) {
     std::cout << "Bob left the meeting!\n";
   }
-
 
   return 0;
 }

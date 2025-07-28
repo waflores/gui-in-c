@@ -11,5 +11,6 @@ cc_binary(
 )
 
 cc_binary(
-    name = "fancy_bitset", srcs = ["fancy_bitset.cpp"]
+    name = "fancy_bitset",
+    srcs = ["fancy_bitset.cpp"],
 )
