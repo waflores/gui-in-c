@@ -9,10 +9,20 @@
  *
  */
 
+#include <array>
 #include <bitset>
 #include <cstddef>
 #include <iostream>
+#include <list>
 #include <string>
+
+/**
+ * @brief List of members in the PresentAndAccountedFor class - to be used for
+ * later introspection.
+ *
+ */
+constexpr auto members = std::to_array<std::string_view>(
+    {"alice", "bob", "charlie", "dave", "eve", "frank", "grace", "heidi"});
 
 /**
  * @brief A class which represents a bit array for each element that's present
@@ -46,6 +56,13 @@ public:
   reference heidi() { return operator[](7); }
   bool heidi() const { return operator[](7); }
 };
+
+std::ostream &operator<<(std::ostream &s, const PresentAndAccountedFor &v) {
+  for (std::size_t i = 0; i < members.size(); ++i) {
+    s << members[i] << "=" << (v[i] ? "present" : "absent") << ", ";
+  }
+  return s;
+}
 
 int main([[maybe_unused]] int argc, [[maybe_unused]] char **argv) {
 
