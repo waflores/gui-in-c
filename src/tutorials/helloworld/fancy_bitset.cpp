@@ -42,7 +42,7 @@ public:
   // The decltype(auto) replaces these calls:
   // reference heidi() { return operator[](7); }
   // bool heidi() const { return operator[](7); }
-  decltype(auto) heidi() const { return operator[](7); }
+  decltype(auto) heidi() { return operator[](7); }
 };
 
 std::ostream &operator<<(std::ostream &s, const PresentAndAccountedFor &v) {
