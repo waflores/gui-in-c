@@ -32,29 +32,17 @@ constexpr auto members = std::to_array<std::string_view>(
  */
 class PresentAndAccountedFor : public std::bitset<8> {
 public:
-  reference alice() { return operator[](0); }
-  bool alice() const { return operator[](0); }
-
-  reference bob() { return operator[](1); }
-  bool bob() const { return operator[](1); }
-
-  reference charlie() { return operator[](2); }
-  bool charlie() const { return operator[](2); }
-
-  reference dave() { return operator[](3); }
-  bool dave() const { return operator[](3); }
-
-  reference eve() { return operator[](4); }
-  bool eve() const { return operator[](4); }
-
-  reference frank() { return operator[](5); }
-  bool frank() const { return operator[](5); }
-
-  reference grace() { return operator[](6); }
-  bool grace() const { return operator[](6); }
-
-  reference heidi() { return operator[](7); }
-  bool heidi() const { return operator[](7); }
+  decltype(auto) alice() { return operator[](0); }
+  decltype(auto) bob() { return operator[](1); }
+  decltype(auto) charlie() { return operator[](2); }
+  decltype(auto) dave() { return operator[](3); }
+  decltype(auto) eve() { return operator[](4); }
+  decltype(auto) frank() { return operator[](5); }
+  decltype(auto) grace() { return operator[](6); }
+  // The decltype(auto) replaces these calls:
+  // reference heidi() { return operator[](7); }
+  // bool heidi() const { return operator[](7); }
+  decltype(auto) heidi() const { return operator[](7); }
 };
 
 std::ostream &operator<<(std::ostream &s, const PresentAndAccountedFor &v) {
