@@ -14,3 +14,8 @@ cc_binary(
     name = "fancy_bitset",
     srcs = ["fancy_bitset.cpp"],
 )
+
+cc_binary(
+    name = "casting_some_more",
+    srcs = ["casting_some_more.cpp"],
+)
