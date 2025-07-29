@@ -19,3 +19,8 @@ cc_binary(
     name = "casting_some_more",
     srcs = ["casting_some_more.cpp"],
 )
+
+cc_binary(
+    name = "dynamic_cast_8",
+    srcs = ["dynamic_cast_8.cpp"],
+)

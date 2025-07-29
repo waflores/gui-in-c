@@ -39,3 +39,48 @@ int main() {
 
   return 0;
 }
+
+#if 0
+class B {};
+class C : public B {};
+class D : public C {};
+
+void f(D *pd) {
+  C *pc = dynamic_cast<C *>(pd); // ok: C is a direct base class
+                                 // pc points to C subobject of pd
+  B *pb = dynamic_cast<B *>(pd); // ok: B is an indirect base class
+                                 // pb points to B subobject of pd
+}
+
+class A {
+  virtual void f();
+};
+class B {
+  virtual void f();
+};
+
+void f() {
+  A *pa = new A;
+  B *pb = new B;
+  void *pv = dynamic_cast<void *>(pa);
+  // pv now points to an object of type A
+
+  pv = dynamic_cast<void *>(pb);
+  // pv now points to an object of type B
+}
+
+class B {
+  virtual void f();
+};
+class D : public B {
+  virtual void f();
+};
+
+void f() {
+  B *pb = new D; // unclear but ok
+  B *pb2 = new B;
+
+  D *pd = dynamic_cast<D *>(pb);   // ok: pb actually points to a D
+  D *pd2 = dynamic_cast<D *>(pb2); // pb2 points to a B not a D
+}
+#endif
