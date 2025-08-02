@@ -48,6 +48,7 @@ pkgs.mkShell.override
         cacert
         clang
         clang-tools
+        clang-uml
         compiledb
         dbus
         dbus.lib
@@ -73,6 +74,7 @@ pkgs.mkShell.override
         nix
         nix-output-monitor
         pkg-config
+        plantuml-c4
         # qt6.full
         # qt6.qtbase
         # # this is for the shellhook portion
