@@ -289,6 +289,26 @@ pkgs.symlinkJoin { name = "libxkbcommon"; paths = with pkgs; [ libxkbcommon ]; }
 )
 use_repo(nix_pkg, "libxkbcommon")
 
+# SDL3 GUI
+nix_pkg.expr(
+    name = "sdl3",
+    attr = "",
+    build_file_content = """
+cc_library(
+    name = "sdl3",
+    srcs = glob(["lib/*.so.*"]),
+    hdrs = glob(["include/**/*.h"]),
+    includes = ["include"],
+    visibility = ["//visibility:public"],
+)
+""",
+    expr = """
+let pkgs = import <nixpkgs> {}; in
+pkgs.symlinkJoin { name = "sdl3"; paths = with pkgs; [ sdl3 sdl3.dev ]; }""",
+    repo = "@nixpkgs",
+)
+use_repo(nix_pkg, "sdl3")
+
 # Hedron's Compile Commands Extractor for Bazel
 # https://github.com/hedronvision/bazel-compile-commands-extractor
 bazel_dep(name = "hedron_compile_commands", dev_dependency = True)

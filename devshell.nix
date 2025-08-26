@@ -81,8 +81,8 @@ pkgs.mkShell.override
         # qt6.wrapQtAppsHook
         # qt6Packages
         # qtcreator
-        SDL2
-        SDL2.dev
+        sdl3
+        sdl3.dev
         tree
         vim
         zlib
