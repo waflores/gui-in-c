@@ -154,7 +154,7 @@
   "moduleExtensions": {
     "@@rules_kotlin+//src/main/starlark/core/repositories:bzlmod_setup.bzl%rules_kotlin_extensions": {
       "general": {
-        "bzlTransitiveDigest": "hUTp2w+RUVdL7ma5esCXZJAFnX7vLbVfLd7FwnQI6bU=",
+        "bzlTransitiveDigest": "OlvsB0HsvxbR8ZN+J9Vf00X/+WVz/Y/5Xrq2LgcVfdo=",
         "usagesDigest": "QI2z8ZUR+mqtbwsf2fLqYdJAkPOHdOV+tF2yVAUgRzw=",
         "recordedFileInputs": {},
         "recordedDirentsInputs": {},
@@ -509,7 +509,7 @@
     },
     "@@rules_qt+//:extensions.bzl%qt": {
       "general": {
-        "bzlTransitiveDigest": "M6UVJg9UH3Xn3FfNfsbXZ7b+F5qWC8IQArM/eZsexrM=",
+        "bzlTransitiveDigest": "2w+NybDYjGol9KlV0zqk3NO++Qla4sSNsWi3cqhnX0U=",
         "usagesDigest": "vJYs5559kII8KvFsg3WjWcJp1GA4hIKiS2B5RfN78Tw=",
         "recordedFileInputs": {},
         "recordedDirentsInputs": {},
