@@ -24,3 +24,8 @@ cc_binary(
     name = "dynamic_cast_8",
     srcs = ["dynamic_cast_8.cpp"],
 )
+
+cc_binary(
+    name = "null_statement",
+    srcs = ["null_statement.cpp"],
+)
