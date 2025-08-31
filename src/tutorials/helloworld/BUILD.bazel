@@ -29,3 +29,23 @@ cc_binary(
     name = "null_statement",
     srcs = ["null_statement.cpp"],
 )
+
+cc_binary(
+    name = "if_initializer",
+    srcs = ["if_initializer.cpp"],
+)
+
+cc_binary(
+    name = "if_constexpr",
+    srcs = ["if_constexpr.cpp"],
+)
+
+cc_binary(
+    name = "while_statement",
+    srcs = ["while_statement.cpp"],
+)
+
+cc_binary(
+    name = "range_based_for",
+    srcs = ["range_based_for.cpp"],
+)
