@@ -1,6 +1,7 @@
 // range-based-for.cpp
 // compile by using: cl /EHsc /nologo /W4
 #include <iostream>
+#include <ranges>
 #include <vector>
 using namespace std;
 
@@ -40,6 +41,12 @@ int main() {
   // Range-based for loop to iterate through the vector, observing in-place.
   for (const auto &j : v) {
     cout << j << " ";
+  }
+  cout << endl << endl;
+
+  cout << "std::iota version " << endl;
+  for (auto x : std::views::iota(0, 10)) {
+    cout << x << " ";
   }
   cout << endl;
   cout << "end of vector test" << endl;
