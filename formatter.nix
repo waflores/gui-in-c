@@ -1,4 +1,9 @@
-{ pkgs, inputs, ... }:
+{
+  flake,
+  pkgs,
+  inputs,
+  ...
+}:
 inputs.treefmt-nix.lib.mkWrapper pkgs {
   # Used to find the project root
   projectRootFile = ".git/config";
@@ -38,8 +43,9 @@ inputs.treefmt-nix.lib.mkWrapper pkgs {
     "external/*"
   ];
 
-  # settings.formatter = {
-  #   shellcheck.includes = [ "direnvrc" ];
-  #   shfmt.includes = [ "direnvrc" ];
-  # };
+  settings.formatter = {
+    #   shellcheck.includes = [ "direnvrc" ];
+    #   shfmt.includes = [ "direnvrc" ];
+    clang-format.options = [ "-style=file:${flake}/.clang-format" ];
+  };
 }
