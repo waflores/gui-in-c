@@ -49,3 +49,18 @@ cc_binary(
     name = "range_based_for",
     srcs = ["range_based_for.cpp"],
 )
+
+cc_binary(
+    name = "enum_explorer",
+    srcs = ["enum_explorer.cpp"],
+)
+
+cc_binary(
+    name = "declaring_a_union",
+    srcs = ["declaring_a_union.cpp"],
+)
+
+cc_binary(
+    name = "weather_unions",
+    srcs = ["weather_unions.cpp"],
+)
