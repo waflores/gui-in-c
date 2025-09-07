@@ -64,3 +64,8 @@ cc_binary(
     name = "weather_unions",
     srcs = ["weather_unions.cpp"],
 )
+
+cc_binary(
+    name = "function_samples",
+    srcs = ["function_samples.cpp"],
+)
