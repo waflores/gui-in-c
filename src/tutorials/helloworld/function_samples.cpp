@@ -8,7 +8,6 @@ template <typename Lhs, typename Rhs>
 auto Add(const Lhs &lhs, const Rhs &rhs) -> decltype(lhs + rhs) {
   return lhs + rhs;
 }
-
 struct S {
   std::string name;
   int num;
@@ -29,6 +28,11 @@ std::tuple<int, std::string, double> f() {
 
 typedef int (*fp)(int);
 fp myfunction(char *s); // function returning function pointer
+
+void func(int i) { std::cout << "Called file-scoped func: " << i << std::endl; }
+void func(const char *sz) {
+  std::cout << "Called locally declared func: " << sz << std::endl;
+}
 
 int main() {
   int i = sum<int>(10, 32);
@@ -52,5 +56,9 @@ int main() {
   std::cout << "auto[x, y, z]: " << x << " " << y << " " << z << std::endl;
   auto [a, b] = g(); // init from POD struct
   std::cout << "auto[a, b]: " << a << " " << b << std::endl;
+
+  func(3); // potentially hidden
+  func("s");
+
   return 0;
 }

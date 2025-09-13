@@ -69,3 +69,8 @@ cc_binary(
     name = "function_samples",
     srcs = ["function_samples.cpp"],
 )
+
+cc_binary(
+    name = "declaration_matching2",
+    srcs = ["declaration_matching2.cpp"],
+)
