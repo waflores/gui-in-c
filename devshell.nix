@@ -67,6 +67,7 @@ pkgs.mkShell.override
         libglvnd
         libglvnd.dev
         libxkbcommon
+        massif-visualizer
         mesa
         mesa-demos
         mesa.spirv2dxil
@@ -84,6 +85,7 @@ pkgs.mkShell.override
         sdl3
         sdl3.dev
         tree
+        valgrind
         vim
         zlib
         zlib.dev
