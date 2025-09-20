@@ -13,8 +13,8 @@ nix_repo.file(
 )
 use_repo(nix_repo, "nixpkgs")
 
-bazel_dep(name = "bazel_skylib", version = "1.7.1")
-bazel_dep(name = "rules_cc", version = "0.1.1")
+bazel_dep(name = "bazel_skylib", version = "1.8.1")
+bazel_dep(name = "rules_cc", version = "0.2.8")
 # Check this out: https://github.com/tweag/rules_nixpkgs/blob/329ca7c9479fb44176e5b5523fe0ecc12e5ff196/testing/core/MODULE.bazel#L23
 
 nix_pkg = use_extension("@rules_nixpkgs_core//extensions:package.bzl", "nix_pkg")
@@ -324,11 +324,11 @@ git_override(
 # Look at this: https://github.com/tweag/rules_nixpkgs/blob/a425ed7865b769c5508507ac8b3817feebe3eed7/testing/core/MODULE.bazel#L50
 # https://github.com/egen/disruptor/blob/aec36d22cf53bf8f941d84b82cf5e0f43b01c02b/projects/bzl7/MODULE.bazel#L5
 
-bazel_dep(name = "platforms", version = "0.0.11")
+bazel_dep(name = "platforms", version = "1.0.0")
 bazel_dep(name = "rules_qt")
 git_override(
     module_name = "rules_qt",
-    commit = "f43d76ab1d3b60bd494e871f4f1042a351bfcff8",
+    commit = "9f8aad6f5363cc77bc557fb9cfcc4bc854ec3439",
     remote = "https://github.com/Vertexwahn/rules_qt6.git",
 )
 
