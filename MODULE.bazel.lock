@@ -1,5 +1,5 @@
 {
-  "lockFileVersion": 18,
+  "lockFileVersion": 24,
   "registryFileHashes": {
     "https://bcr.bazel.build/bazel_registry.json": "8a28e4aff06ee60aed2a8c281907fb8bcbf3b753c91fb5a5c57da3215d5b3497",
     "https://bcr.bazel.build/modules/abseil-cpp/20210324.2/MODULE.bazel": "7cd0312e064fde87c8d1cd79ba06c876bd23630c83466e9500321be55c96ace2",
@@ -32,8 +32,8 @@
     "https://bcr.bazel.build/modules/bazel_skylib/1.6.1/MODULE.bazel": "8fdee2dbaace6c252131c00e1de4b165dc65af02ea278476187765e1a617b917",
     "https://bcr.bazel.build/modules/bazel_skylib/1.7.0/MODULE.bazel": "0db596f4563de7938de764cc8deeabec291f55e8ec15299718b93c4423e9796d",
     "https://bcr.bazel.build/modules/bazel_skylib/1.7.1/MODULE.bazel": "3120d80c5861aa616222ec015332e5f8d3171e062e3e804a2a0253e1be26e59b",
-    "https://bcr.bazel.build/modules/bazel_skylib/1.8.1/MODULE.bazel": "88ade7293becda963e0e3ea33e7d54d3425127e0a326e0d17da085a5f1f03ff6",
-    "https://bcr.bazel.build/modules/bazel_skylib/1.8.1/source.json": "7ebaefba0b03efe59cac88ed5bbc67bcf59a3eff33af937345ede2a38b2d368a",
+    "https://bcr.bazel.build/modules/bazel_skylib/1.8.2/MODULE.bazel": "69ad6927098316848b34a9142bcc975e018ba27f08c4ff403f50c1b6e646ca67",
+    "https://bcr.bazel.build/modules/bazel_skylib/1.8.2/source.json": "34a3c8bcf233b835eb74be9d628899bb32999d3e0eadef1947a0a562a2b16ffb",
     "https://bcr.bazel.build/modules/buildozer/7.1.2/MODULE.bazel": "2e8dd40ede9c454042645fd8d8d0cd1527966aa5c919de86661e62953cd73d84",
     "https://bcr.bazel.build/modules/buildozer/7.1.2/source.json": "c9028a501d2db85793a6996205c8de120944f50a0d570438fcae0457a5f9d1f8",
     "https://bcr.bazel.build/modules/glib/2.82.2.bcr.5/MODULE.bazel": "1f58891f8460e88d29ca57df3104d575a21751557cd8c2141c720873b3f62031",
@@ -80,14 +80,14 @@
     "https://bcr.bazel.build/modules/rules_cc/0.0.14/MODULE.bazel": "5e343a3aac88b8d7af3b1b6d2093b55c347b8eefc2e7d1442f7a02dc8fea48ac",
     "https://bcr.bazel.build/modules/rules_cc/0.0.15/MODULE.bazel": "6704c35f7b4a72502ee81f61bf88706b54f06b3cbe5558ac17e2e14666cd5dcc",
     "https://bcr.bazel.build/modules/rules_cc/0.0.16/MODULE.bazel": "7661303b8fc1b4d7f532e54e9d6565771fea666fbdf839e0a86affcd02defe87",
-    "https://bcr.bazel.build/modules/rules_cc/0.0.17/MODULE.bazel": "2ae1d8f4238ec67d7185d8861cb0a2cdf4bc608697c331b95bf990e69b62e64a",
     "https://bcr.bazel.build/modules/rules_cc/0.0.2/MODULE.bazel": "6915987c90970493ab97393024c156ea8fb9f3bea953b2f3ec05c34f19b5695c",
     "https://bcr.bazel.build/modules/rules_cc/0.0.6/MODULE.bazel": "abf360251023dfe3efcef65ab9d56beefa8394d4176dd29529750e1c57eaa33f",
     "https://bcr.bazel.build/modules/rules_cc/0.0.8/MODULE.bazel": "964c85c82cfeb6f3855e6a07054fdb159aced38e99a5eecf7bce9d53990afa3e",
     "https://bcr.bazel.build/modules/rules_cc/0.0.9/MODULE.bazel": "836e76439f354b89afe6a911a7adf59a6b2518fafb174483ad78a2a2fde7b1c5",
     "https://bcr.bazel.build/modules/rules_cc/0.1.1/MODULE.bazel": "2f0222a6f229f0bf44cd711dc13c858dad98c62d52bd51d8fc3a764a83125513",
-    "https://bcr.bazel.build/modules/rules_cc/0.2.8/MODULE.bazel": "f1df20f0bf22c28192a794f29b501ee2018fa37a3862a1a2132ae2940a23a642",
-    "https://bcr.bazel.build/modules/rules_cc/0.2.8/source.json": "85087982aca15f31307bd52698316b28faa31bd2c3095a41f456afec0131344c",
+    "https://bcr.bazel.build/modules/rules_cc/0.2.12/MODULE.bazel": "4216c383ce3223c7dfbd3afcb09c7056265156150b2a3bd3fd9d02949a7ee1bc",
+    "https://bcr.bazel.build/modules/rules_cc/0.2.14/MODULE.bazel": "353c99ed148887ee89c54a17d4100ae7e7e436593d104b668476019023b58df8",
+    "https://bcr.bazel.build/modules/rules_cc/0.2.14/source.json": "55d0a4587c5592fad350f6e698530f4faf0e7dd15e69d43f8d87e220c78bea54",
     "https://bcr.bazel.build/modules/rules_foreign_cc/0.9.0/MODULE.bazel": "c9e8c682bf75b0e7c704166d79b599f93b72cfca5ad7477df596947891feeef6",
     "https://bcr.bazel.build/modules/rules_fuzzing/0.5.2/MODULE.bazel": "40c97d1144356f52905566c55811f13b299453a14ac7769dfba2ac38192337a8",
     "https://bcr.bazel.build/modules/rules_fuzzing/0.5.2/source.json": "c8b1e2c717646f1702290959a3302a178fb639d987ab61d548105019f11e527e",
@@ -139,7 +139,8 @@
     "https://bcr.bazel.build/modules/rules_python/0.40.0/MODULE.bazel": "9d1a3cd88ed7d8e39583d9ffe56ae8a244f67783ae89b60caafc9f5cf318ada7",
     "https://bcr.bazel.build/modules/rules_python/0.40.0/source.json": "939d4bd2e3110f27bfb360292986bb79fd8dcefb874358ccd6cdaa7bda029320",
     "https://bcr.bazel.build/modules/rules_shell/0.2.0/MODULE.bazel": "fda8a652ab3c7d8fee214de05e7a9916d8b28082234e8d2c0094505c5268ed3c",
-    "https://bcr.bazel.build/modules/rules_shell/0.2.0/source.json": "7f27af3c28037d9701487c4744b5448d26537cc66cdef0d8df7ae85411f8de95",
+    "https://bcr.bazel.build/modules/rules_shell/0.6.1/MODULE.bazel": "72e76b0eea4e81611ef5452aa82b3da34caca0c8b7b5c0c9584338aa93bae26b",
+    "https://bcr.bazel.build/modules/rules_shell/0.6.1/source.json": "20ec05cd5e592055e214b2da8ccb283c7f2a421ea0dc2acbf1aa792e11c03d0c",
     "https://bcr.bazel.build/modules/stardoc/0.5.1/MODULE.bazel": "1a05d92974d0c122f5ccf09291442580317cdd859f07a8655f1db9a60374f9f8",
     "https://bcr.bazel.build/modules/stardoc/0.5.3/MODULE.bazel": "c7f6948dae6999bf0db32c1858ae345f112cacf98f174c7a8bb707e41b974f1c",
     "https://bcr.bazel.build/modules/stardoc/0.5.6/MODULE.bazel": "c43dabc564990eeab55e25ed61c07a1aadafe9ece96a4efabb3f8bf9063b71ef",
@@ -158,7 +159,7 @@
   "moduleExtensions": {
     "@@rules_kotlin+//src/main/starlark/core/repositories:bzlmod_setup.bzl%rules_kotlin_extensions": {
       "general": {
-        "bzlTransitiveDigest": "OlvsB0HsvxbR8ZN+J9Vf00X/+WVz/Y/5Xrq2LgcVfdo=",
+        "bzlTransitiveDigest": "rL/34P1aFDq2GqVC2zCFgQ8nTuOC6ziogocpvG50Qz8=",
         "usagesDigest": "QI2z8ZUR+mqtbwsf2fLqYdJAkPOHdOV+tF2yVAUgRzw=",
         "recordedFileInputs": {},
         "recordedDirentsInputs": {},
@@ -219,353 +220,7 @@
           ]
         ]
       }
-    },
-    "@@rules_nixpkgs_core+//extensions:package.bzl%nix_pkg": {
-      "general": {
-        "bzlTransitiveDigest": "2alEQC7q9PgrArc8ZeI662VmDHLGfuswqnzBJvVDnmg=",
-        "usagesDigest": "vGkOwwQTtvgTlpVCXbrWhOQ3lDUxqRcTYKV82RtUhaA=",
-        "recordedFileInputs": {},
-        "recordedDirentsInputs": {},
-        "envVariables": {},
-        "generatedRepoSpecs": {
-          "gtk4": {
-            "repoRuleId": "@@rules_nixpkgs_core+//:nixpkgs.bzl%_nixpkgs_package",
-            "attributes": {
-              "unmangled_name": "gtk4",
-              "attribute_path": "",
-              "nix_file_deps": {},
-              "nix_file_content": "\nlet pkgs = import <nixpkgs> {}; in\npkgs.symlinkJoin { name = \"gtk4\"; paths = with pkgs; [ gtk4 gtk4.dev ]; }",
-              "repository": "@@rules_nixpkgs_core++nix_repo+nixpkgs//:nixpkgs",
-              "repositories": {},
-              "build_file_content": "\ncc_library(\n    name = \"gtk4\",\n    srcs = glob([\"lib/*.so*\"]),\n    hdrs = glob([\"include/gtk-4.0/**/*.h\"]),\n    includes = [\"include\"],\n    strip_include_prefix = \"include/gtk-4.0\",\n    visibility = [\"//visibility:public\"],\n)\n",
-              "nixopts": [],
-              "quiet": false,
-              "fail_not_supported": true
-            }
-          },
-          "boost": {
-            "repoRuleId": "@@rules_nixpkgs_core+//:nixpkgs.bzl%_nixpkgs_package",
-            "attributes": {
-              "unmangled_name": "boost",
-              "attribute_path": "",
-              "nix_file_deps": {},
-              "nix_file_content": "\nlet pkgs = import <nixpkgs> {}; in\npkgs.symlinkJoin { name = \"boost\"; paths = with pkgs; [ boost boost.dev ]; }",
-              "repository": "@@rules_nixpkgs_core++nix_repo+nixpkgs//:nixpkgs",
-              "repositories": {},
-              "build_file_content": "\ncc_library(\n    name = \"boost\",\n    srcs = glob([\"lib/*.so*\"]),\n    hdrs = glob([\"include/boost/**/*.h\", \"include/boost/**/*.hpp\", \"include/boost/**/*.ipp\"]),\n    includes = [\"include\"],\n    visibility = [\"//visibility:public\"],\n)\n",
-              "nixopts": [],
-              "quiet": false,
-              "fail_not_supported": true
-            }
-          },
-          "cairo": {
-            "repoRuleId": "@@rules_nixpkgs_core+//:nixpkgs.bzl%_nixpkgs_package",
-            "attributes": {
-              "unmangled_name": "cairo",
-              "attribute_path": "",
-              "nix_file_deps": {},
-              "nix_file_content": "\nlet pkgs = import <nixpkgs> {}; in\npkgs.symlinkJoin { name = \"cairo\"; paths = with pkgs; [ cairo cairo.dev ]; }",
-              "repository": "@@rules_nixpkgs_core++nix_repo+nixpkgs//:nixpkgs",
-              "repositories": {},
-              "build_file_content": "\ncc_library(\n    name = \"cairo\",\n    srcs = glob([\"lib/*.so*\"]),\n    hdrs = glob([\"include/**/*.h\"]),\n    includes = [\"include\"],\n    strip_include_prefix = \"include/cairo\",\n    visibility = [\"//visibility:public\"],\n)\n",
-              "nixopts": [],
-              "quiet": false,
-              "fail_not_supported": true
-            }
-          },
-          "pango": {
-            "repoRuleId": "@@rules_nixpkgs_core+//:nixpkgs.bzl%_nixpkgs_package",
-            "attributes": {
-              "unmangled_name": "pango",
-              "attribute_path": "",
-              "nix_file_deps": {},
-              "nix_file_content": "\nlet pkgs = import <nixpkgs> {}; in\npkgs.symlinkJoin { name = \"pango\"; paths = with pkgs; [ pango pango.dev ]; }",
-              "repository": "@@rules_nixpkgs_core++nix_repo+nixpkgs//:nixpkgs",
-              "repositories": {},
-              "build_file_content": "\ncc_library(\n    name = \"pango\",\n    hdrs = glob([\"include/**/*.h\"]),\n    includes = [\"include\"],\n    strip_include_prefix = \"include/pango-1.0\",\n    visibility = [\"//visibility:public\"],\n)\n",
-              "nixopts": [],
-              "quiet": false,
-              "fail_not_supported": true
-            }
-          },
-          "harfbuzz": {
-            "repoRuleId": "@@rules_nixpkgs_core+//:nixpkgs.bzl%_nixpkgs_package",
-            "attributes": {
-              "unmangled_name": "harfbuzz",
-              "attribute_path": "",
-              "nix_file_deps": {},
-              "nix_file_content": "\nlet pkgs = import <nixpkgs> {}; in\npkgs.symlinkJoin { name = \"harfbuzz\"; paths = with pkgs; [ harfbuzz harfbuzz.dev ]; }",
-              "repository": "@@rules_nixpkgs_core++nix_repo+nixpkgs//:nixpkgs",
-              "repositories": {},
-              "build_file_content": "\ncc_library(\n    name = \"harfbuzz\",\n    srcs = glob([\"lib/*.so*\"]),\n    hdrs = glob([\"include/**/*.h\"]),\n    includes = [\"include\"],\n    strip_include_prefix = \"include/harfbuzz\",\n    visibility = [\"//visibility:public\"],\n)\n",
-              "nixopts": [],
-              "quiet": false,
-              "fail_not_supported": true
-            }
-          },
-          "gdk-pixbuf": {
-            "repoRuleId": "@@rules_nixpkgs_core+//:nixpkgs.bzl%_nixpkgs_package",
-            "attributes": {
-              "unmangled_name": "gdk-pixbuf",
-              "attribute_path": "",
-              "nix_file_deps": {},
-              "nix_file_content": "\nlet pkgs = import <nixpkgs> {}; in\npkgs.symlinkJoin { name = \"gdk-pixbuf\"; paths = with pkgs; [ gdk-pixbuf gdk-pixbuf.dev ]; }",
-              "repository": "@@rules_nixpkgs_core++nix_repo+nixpkgs//:nixpkgs",
-              "repositories": {},
-              "build_file_content": "\ncc_library(\n    name = \"gdk-pixbuf\",\n    srcs = glob([\"lib/*.so*\"]),\n    hdrs = glob([\"include/**/*.h\"]),\n    includes = [\"include\"],\n    strip_include_prefix = \"include/gdk-pixbuf-2.0\",\n    visibility = [\"//visibility:public\"],\n)\n",
-              "nixopts": [],
-              "quiet": false,
-              "fail_not_supported": true
-            }
-          },
-          "graphene": {
-            "repoRuleId": "@@rules_nixpkgs_core+//:nixpkgs.bzl%_nixpkgs_package",
-            "attributes": {
-              "unmangled_name": "graphene",
-              "attribute_path": "",
-              "nix_file_deps": {},
-              "nix_file_content": "\nlet pkgs = import <nixpkgs> {}; in\npkgs.symlinkJoin { name = \"graphene\"; paths = with pkgs; [ graphene graphene.dev ]; }",
-              "repository": "@@rules_nixpkgs_core++nix_repo+nixpkgs//:nixpkgs",
-              "repositories": {},
-              "build_file_content": "\ncc_library(\n    name = \"graphene\",\n    srcs = glob([\"lib/*.so*\", \"lib/graphene-1.0/include/graphene-config.h\"]),\n    hdrs = glob([\"include/**/*.h\"]),\n    includes = [\"include\", \"lib/graphene-1.0/include\"],\n    strip_include_prefix = \"include/graphene-1.0\",\n    visibility = [\"//visibility:public\"],\n)\n",
-              "nixopts": [],
-              "quiet": false,
-              "fail_not_supported": true
-            }
-          },
-          "zlib": {
-            "repoRuleId": "@@rules_nixpkgs_core+//:nixpkgs.bzl%_nixpkgs_package",
-            "attributes": {
-              "unmangled_name": "zlib",
-              "attribute_path": "",
-              "nix_file_deps": {},
-              "nix_file_content": "\nlet pkgs = import <nixpkgs> {}; in\npkgs.symlinkJoin { name = \"zlib\"; paths = with pkgs; [ zlib zlib.dev ]; }",
-              "repository": "@@rules_nixpkgs_core++nix_repo+nixpkgs//:nixpkgs",
-              "repositories": {},
-              "build_file_content": "\ncc_library(\n    name = \"zlib\",\n    srcs = glob([\"lib/*.so.*\"]),\n    hdrs = glob([\"include/**/*.h\"]),\n    includes = [\"include\"],\n    visibility = [\"//visibility:public\"],\n)\n",
-              "nixopts": [],
-              "quiet": false,
-              "fail_not_supported": true
-            }
-          },
-          "dbus": {
-            "repoRuleId": "@@rules_nixpkgs_core+//:nixpkgs.bzl%_nixpkgs_package",
-            "attributes": {
-              "unmangled_name": "dbus",
-              "attribute_path": "",
-              "nix_file_deps": {},
-              "nix_file_content": "\nlet pkgs = import <nixpkgs> {}; in\npkgs.symlinkJoin { name = \"dbus\"; paths = with pkgs; [ dbus dbus.lib ]; }",
-              "repository": "@@rules_nixpkgs_core++nix_repo+nixpkgs//:nixpkgs",
-              "repositories": {},
-              "build_file_content": "\ncc_library(\n    name = \"dbus\",\n    srcs = glob([\"lib/*.so.*\"]),\n    hdrs = glob([\"include/**/*.h\"]),\n    includes = [\"include\"],\n    visibility = [\"//visibility:public\"],\n)\n",
-              "nixopts": [],
-              "quiet": false,
-              "fail_not_supported": true
-            }
-          },
-          "libglvnd": {
-            "repoRuleId": "@@rules_nixpkgs_core+//:nixpkgs.bzl%_nixpkgs_package",
-            "attributes": {
-              "unmangled_name": "libglvnd",
-              "attribute_path": "",
-              "nix_file_deps": {},
-              "nix_file_content": "\nlet pkgs = import <nixpkgs> {}; in\npkgs.symlinkJoin { name = \"libglvnd\"; paths = with pkgs; [ libglvnd libglvnd.dev ]; }",
-              "repository": "@@rules_nixpkgs_core++nix_repo+nixpkgs//:nixpkgs",
-              "repositories": {},
-              "build_file_content": "\ncc_library(\n    name = \"libglvnd\",\n    srcs = glob([\"lib/*.so.*\"]),\n    hdrs = glob([\"include/**/*.h\"]),\n    includes = [\"include\"],\n    visibility = [\"//visibility:public\"],\n)\n",
-              "nixopts": [],
-              "quiet": false,
-              "fail_not_supported": true
-            }
-          },
-          "egl-wayland": {
-            "repoRuleId": "@@rules_nixpkgs_core+//:nixpkgs.bzl%_nixpkgs_package",
-            "attributes": {
-              "unmangled_name": "egl-wayland",
-              "attribute_path": "",
-              "nix_file_deps": {},
-              "nix_file_content": "\nlet pkgs = import <nixpkgs> {}; in\npkgs.symlinkJoin { name = \"egl-wayland\"; paths = with pkgs; [ egl-wayland egl-wayland.dev ]; }",
-              "repository": "@@rules_nixpkgs_core++nix_repo+nixpkgs//:nixpkgs",
-              "repositories": {},
-              "build_file_content": "\ncc_library(\n    name = \"egl-wayland\",\n    srcs = glob([\"lib/*.so.*\"]),\n    hdrs = glob([\"include/**/*.h\"]),\n    includes = [\"include\"],\n    visibility = [\"//visibility:public\"],\n)\n",
-              "nixopts": [],
-              "quiet": false,
-              "fail_not_supported": true
-            }
-          },
-          "fontconfig": {
-            "repoRuleId": "@@rules_nixpkgs_core+//:nixpkgs.bzl%_nixpkgs_package",
-            "attributes": {
-              "unmangled_name": "fontconfig",
-              "attribute_path": "",
-              "nix_file_deps": {},
-              "nix_file_content": "\nlet pkgs = import <nixpkgs> {}; in\npkgs.symlinkJoin { name = \"fontconfig\"; paths = with pkgs; [ fontconfig fontconfig.lib ]; }",
-              "repository": "@@rules_nixpkgs_core++nix_repo+nixpkgs//:nixpkgs",
-              "repositories": {},
-              "build_file_content": "\ncc_library(\n    name = \"fontconfig\",\n    srcs = glob([\"lib/*.so.*\"]),\n    hdrs = glob([\"include/**/*.h\"]),\n    includes = [\"include\"],\n    visibility = [\"//visibility:public\"],\n)\n",
-              "nixopts": [],
-              "quiet": false,
-              "fail_not_supported": true
-            }
-          },
-          "libxkbcommon": {
-            "repoRuleId": "@@rules_nixpkgs_core+//:nixpkgs.bzl%_nixpkgs_package",
-            "attributes": {
-              "unmangled_name": "libxkbcommon",
-              "attribute_path": "",
-              "nix_file_deps": {},
-              "nix_file_content": "\nlet pkgs = import <nixpkgs> {}; in\npkgs.symlinkJoin { name = \"libxkbcommon\"; paths = with pkgs; [ libxkbcommon ]; }",
-              "repository": "@@rules_nixpkgs_core++nix_repo+nixpkgs//:nixpkgs",
-              "repositories": {},
-              "build_file_content": "\ncc_library(\n    name = \"libxkbcommon\",\n    srcs = glob([\"lib/*.so.*\"]),\n    hdrs = glob([\"include/**/*.h\"]),\n    includes = [\"include\"],\n    visibility = [\"//visibility:public\"],\n)\n",
-              "nixopts": [],
-              "quiet": false,
-              "fail_not_supported": true
-            }
-          },
-          "sdl3": {
-            "repoRuleId": "@@rules_nixpkgs_core+//:nixpkgs.bzl%_nixpkgs_package",
-            "attributes": {
-              "unmangled_name": "sdl3",
-              "attribute_path": "",
-              "nix_file_deps": {},
-              "nix_file_content": "\nlet pkgs = import <nixpkgs> {}; in\npkgs.symlinkJoin { name = \"sdl3\"; paths = with pkgs; [ sdl3 sdl3.dev ]; }",
-              "repository": "@@rules_nixpkgs_core++nix_repo+nixpkgs//:nixpkgs",
-              "repositories": {},
-              "build_file_content": "\ncc_library(\n    name = \"sdl3\",\n    srcs = glob([\"lib/*.so.*\"]),\n    hdrs = glob([\"include/**/*.h\"]),\n    includes = [\"include\"],\n    visibility = [\"//visibility:public\"],\n)\n",
-              "nixopts": [],
-              "quiet": false,
-              "fail_not_supported": true
-            }
-          }
-        },
-        "moduleExtensionMetadata": {
-          "explicitRootModuleDirectDeps": [
-            "gtk4",
-            "boost",
-            "cairo",
-            "pango",
-            "harfbuzz",
-            "gdk-pixbuf",
-            "graphene",
-            "zlib",
-            "dbus",
-            "libglvnd",
-            "egl-wayland",
-            "fontconfig",
-            "libxkbcommon",
-            "sdl3"
-          ],
-          "explicitRootModuleDirectDevDeps": [],
-          "useAllRepos": "NO",
-          "reproducible": false
-        },
-        "recordedRepoMappingEntries": [
-          [
-            "",
-            "nixpkgs",
-            "rules_nixpkgs_core++nix_repo+nixpkgs"
-          ],
-          [
-            "rules_nixpkgs_core+",
-            "bazel_skylib",
-            "bazel_skylib+"
-          ]
-        ]
-      }
-    },
-    "@@rules_nixpkgs_core+//extensions:repository.bzl%nix_repo": {
-      "general": {
-        "bzlTransitiveDigest": "dTTtWNdwe7E4j77oKh1mHI1qtdxfaVSGSZa1oPf2QjU=",
-        "usagesDigest": "hoxRxxnSbd2PafItf8SHTm/MSZ1kwq8DBSasV+yZXmE=",
-        "recordedFileInputs": {},
-        "recordedDirentsInputs": {},
-        "envVariables": {},
-        "generatedRepoSpecs": {
-          "nixpkgs": {
-            "repoRuleId": "@@rules_nixpkgs_core+//:nixpkgs.bzl%_nixpkgs_local_repository",
-            "attributes": {
-              "unmangled_name": "nixpkgs",
-              "nix_file": "@@//:nixpkgs.nix",
-              "nix_file_deps": [
-                "@@//:flake.lock"
-              ],
-              "nix_file_content": ""
-            }
-          }
-        },
-        "moduleExtensionMetadata": {
-          "explicitRootModuleDirectDeps": [
-            "nixpkgs"
-          ],
-          "explicitRootModuleDirectDevDeps": [],
-          "useAllRepos": "NO",
-          "reproducible": false
-        },
-        "recordedRepoMappingEntries": [
-          [
-            "rules_nixpkgs_core+",
-            "bazel_skylib",
-            "bazel_skylib+"
-          ]
-        ]
-      }
-    },
-    "@@rules_qt+//:extensions.bzl%qt": {
-      "general": {
-        "bzlTransitiveDigest": "2w+NybDYjGol9KlV0zqk3NO++Qla4sSNsWi3cqhnX0U=",
-        "usagesDigest": "vJYs5559kII8KvFsg3WjWcJp1GA4hIKiS2B5RfN78Tw=",
-        "recordedFileInputs": {},
-        "recordedDirentsInputs": {},
-        "envVariables": {},
-        "generatedRepoSpecs": {
-          "qt_windows_x86_64": {
-            "repoRuleId": "@@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-            "attributes": {
-              "urls": [
-                "https://vertexwahn.de/lfs/v1/qt_6.4.0_windows_desktop_win64_msvc2019_64.zip"
-              ],
-              "sha256": "e3c20b441ddd8bb803e46de32bf2fc5563fda125409d62dcd12b5647ae5a9c7e",
-              "strip_prefix": "6.4.0/msvc2019_64",
-              "build_file": "@@rules_qt+//:qt_windows_x86_64.BUILD"
-            }
-          },
-          "qt_linux_x86_64": {
-            "repoRuleId": "@@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-            "attributes": {
-              "urls": [
-                "https://vertexwahn.de/lfs/v1/qt_6.4.0_linux_desktop_gcc_64.tar.xz"
-              ],
-              "sha256": "809919895e2ac0567df9290676d4ec6cd1ed39c432dc5da0722b3104681fd376",
-              "strip_prefix": "6.4.0/gcc_64",
-              "build_file": "@@rules_qt+//:qt_linux_x86_64.BUILD"
-            }
-          },
-          "qt_mac_aarch64": {
-            "repoRuleId": "@@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-            "attributes": {
-              "urls": [
-                "https://vertexwahn.de/lfs/v1/qt_6.8.0_mac_aarch64_gamepad.tar.xz"
-              ],
-              "sha256": "07be3436bfb31b3a2e629907ca39a8652febe563046094cdc7373b7ff28228c4",
-              "strip_prefix": "Qt-6.8.0",
-              "build_file": "@@rules_qt+//:qt_mac_aarch64.BUILD"
-            }
-          }
-        },
-        "recordedRepoMappingEntries": [
-          [
-            "rules_qt+",
-            "bazel_tools",
-            "bazel_tools"
-          ],
-          [
-            "rules_qt+",
-            "rules_qt",
-            "rules_qt+"
-          ]
-        ]
-      }
     }
-  }
+  },
+  "facts": {}
 }

@@ -6,10 +6,10 @@
   inputs = {
     # keep-sorted start
     blueprint.inputs.nixpkgs.follows = "nixpkgs";
-    blueprint.url = "https://github.com/numtide/blueprint/archive/3c8bf84e28df2be19cc6623cb3ceeb6fc0839b91.tar.gz";
-    nixpkgs.url = "https://github.com/NixOS/nixpkgs/archive/a0959a7457327eb5a98c222d5962ff95c6a3fe3e.tar.gz"; # 25.11 - 2025-09-19
+    blueprint.url = "https://github.com/numtide/blueprint/archive/5a9bba070f801d63e2af3c9ef00b86b212429f4f.tar.gz";
+    nixpkgs.url = "https://github.com/NixOS/nixpkgs/archive/2493002b10ccef0880f72d7720538f91fb4f7434.tar.gz"; # 26.05-pre  2025-11-24
     treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
-    treefmt-nix.url = "https://github.com/numtide/treefmt-nix/archive/128222dc911b8e2e18939537bed1762b7f3a04aa.tar.gz";
+    treefmt-nix.url = "https://github.com/numtide/treefmt-nix/archive/5b4ee75aeefd1e2d5a1cc43cf6ba65eba75e83e4.tar.gz";
     # keep-sorted end
   }; # End inputs
 
