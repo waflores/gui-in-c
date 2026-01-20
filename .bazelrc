@@ -1,3 +1,6 @@
+startup --noautodetect_server_javabase
+common --announce_rc --show_timestamps
+
 # Enable Bzlmod for every Bazel command
 common --enable_bzlmod --noenable_workspace
 

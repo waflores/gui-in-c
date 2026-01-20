@@ -76,12 +76,8 @@ pkgs.mkShell.override
         nix-output-monitor
         pkg-config
         plantuml-c4
-        # qt6.full
-        # qt6.qtbase
         # # this is for the shellhook portion
         # qt6.wrapQtAppsHook
-        # qt6Packages
-        # qtcreator
         sdl3
         sdl3.dev
         tree

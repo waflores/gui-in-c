@@ -1,6 +1,6 @@
 module(name = "guis-in-c")
 
-bazel_dep(name = "glib", version = "2.82.2.bcr.5")
+bazel_dep(name = "glib", version = "2.82.2.bcr.7")
 bazel_dep(name = "rules_nixpkgs_core", version = "0.13.0")
 
 nix_repo = use_extension("@rules_nixpkgs_core//extensions:repository.bzl", "nix_repo")
@@ -13,8 +13,8 @@ nix_repo.file(
 )
 use_repo(nix_repo, "nixpkgs")
 
-bazel_dep(name = "bazel_skylib", version = "1.8.2")
-bazel_dep(name = "rules_cc", version = "0.2.14")
+bazel_dep(name = "bazel_skylib", version = "1.9.0")
+bazel_dep(name = "rules_cc", version = "0.2.16")
 # Check this out: https://github.com/tweag/rules_nixpkgs/blob/329ca7c9479fb44176e5b5523fe0ecc12e5ff196/testing/core/MODULE.bazel#L23
 
 nix_pkg = use_extension("@rules_nixpkgs_core//extensions:package.bzl", "nix_pkg")
@@ -339,7 +339,6 @@ qt.install(
     os = "linux",
     version = "6.8.3",
 )
-
 use_repo(
     qt,
     "qt_linux_x86_64",
