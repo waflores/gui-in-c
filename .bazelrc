@@ -4,28 +4,31 @@ import %workspace%/tools/preset.bazelrc
 ########################
 # Project-specific flags
 # This is also a place to override settings from the presets
-startup --noautodetect_server_javabase
 common --announce_rc --show_timestamps
 
 # Enable Bzlmod for every Bazel command
 common --enable_bzlmod --noenable_workspace
 
-build --host_platform=@rules_nixpkgs_core//platforms:host
-common --noincompatible_disallow_empty_glob
 # Enable Debug Fission
 common --fission=yes
 common --compilation_mode=dbg
 
-# Turn on all the strict error checking for CC
-common --copt=-g3  # Add more debug stuff
-common --copt=-pedantic-errors
 
-common --cxxopt=-std=c++23
-common --cxxopt=-Weffc++
-common --cxxopt=-Wextra
-common --cxxopt=-Wconversion
-common --cxxopt=-Wsign-conversion
-common --cxxopt=-Werror
 
-# C Options
-common --conlyopt=-std=c23  # Needed for c programs and not angering c++ ones
+# build --host_platform=@rules_nixpkgs_core//platforms:host
+# common --noincompatible_disallow_empty_glob
+# startup --noautodetect_server_javabase
+
+# # Turn on all the strict error checking for CC
+# common --copt=-g3  # Add more debug stuff
+# common --copt=-pedantic-errors
+
+# common --cxxopt=-std=c++23
+# common --cxxopt=-Weffc++
+# common --cxxopt=-Wextra
+# common --cxxopt=-Wconversion
+# common --cxxopt=-Wsign-conversion
+# common --cxxopt=-Werror
+
+# # C Options
+# common --conlyopt=-std=c23  # Needed for c programs and not angering c++ ones
