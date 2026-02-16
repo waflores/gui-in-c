@@ -350,3 +350,4 @@ register_toolchains(
 )
 
 # TODO(@waflores) 2025-06-03: Figure out how to register clang/gcc properly in the repo
+bazel_dep(name = "bazelrc-preset.bzl", version = "1.9.2")

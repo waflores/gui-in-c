@@ -1,3 +1,9 @@
+# Import bazelrc presets
+import %workspace%/tools/preset.bazelrc
+
+########################
+# Project-specific flags
+# This is also a place to override settings from the presets
 startup --noautodetect_server_javabase
 common --announce_rc --show_timestamps
 
