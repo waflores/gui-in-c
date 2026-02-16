@@ -9,6 +9,7 @@ import %workspace%/tools/preset.bazelrc
 # for symlinks to work properly (namely, so that sh_test with
 # py_binary as a data dependency gets symlinks that are executable)
 startup --windows_enable_symlinks
+startup --noautodetect_server_javabase
 
 common --announce_rc --show_timestamps
 
@@ -21,7 +22,6 @@ common --compilation_mode=dbg
 
 # build --host_platform=@rules_nixpkgs_core//platforms:host
 # common --noincompatible_disallow_empty_glob
-# startup --noautodetect_server_javabase
 
 # Turn on all the strict error checking for CC
 common:linux --copt=-g3  # Add more debug stuff

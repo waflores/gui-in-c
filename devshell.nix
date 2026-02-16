@@ -53,6 +53,8 @@ pkgs.mkShell.override
         dbus
         dbus.lib
         direnv
+        fontconfig.dev
+        fontconfig.lib
         fzf
         gdb
         git
@@ -63,10 +65,15 @@ pkgs.mkShell.override
         gtk4.dev
         gzip
         jdk8
+        # libdbusmenu-dbus
+        libdbusmenu-gtk3
         libdrm
+        libGL
         libglvnd
         libglvnd.dev
+        libpulseaudio
         libxkbcommon
+        libz
         massif-visualizer
         mesa
         mesa-demos
@@ -74,6 +81,8 @@ pkgs.mkShell.override
         ninja
         nix
         nix-output-monitor
+        pcsclite.dev
+        pcsclite.lib
         pkg-config
         plantuml-c4
         # # this is for the shellhook portion
@@ -85,6 +94,7 @@ pkgs.mkShell.override
         vim
         zlib
         zlib.dev
+        zstd.dev
         # keep-sorted end
       ]
       ++ xorgDeps;
