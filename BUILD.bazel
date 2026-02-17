@@ -1,4 +1,6 @@
+load("@buildifier_prebuilt//:rules.bzl", "buildifier", "buildifier_test")
 load("@hedron_compile_commands//:refresh_compile_commands.bzl", "refresh_compile_commands")
+load("@rules_foreign_cc//foreign_cc:defs.bzl", "cmake")
 
 refresh_compile_commands(
     name = "refresh_compile_commands",
@@ -12,4 +14,50 @@ refresh_compile_commands(
     # Wildcard patterns, like //... for everything, *are* allowed here, just like a build.
     # As are additional targets (+) and subtractions (-), like in bazel query https://docs.bazel.build/versions/main/query.html#expressions
     # And if you're working on a header-only library, specify a test or binary target that compiles it.
+)
+
+cmake(
+    name = "pcre",
+    cache_entries = {
+        "CMAKE_C_FLAGS": "-fPIC",
+    },
+    lib_source = "@pcre//:all_srcs",
+    out_static_libs = ["libpcre.a"],
+)
+
+BUILDIFIER_EXCLUDES = [
+    "./.git/*",
+    "./.ijwb/*",
+]
+
+# Buildifier formats all Starlark files.
+buildifier(
+    name = "buildifier",
+    exclude_patterns = BUILDIFIER_EXCLUDES,
+    lint_mode = "fix",
+    mode = "fix",
+)
+
+buildifier_test(
+    name = "buildifier_test",
+    exclude_patterns = BUILDIFIER_EXCLUDES,
+    lint_mode = "warn",
+    lint_warnings = [
+        "-module-docstring",
+        "-function-docstring-args",
+        "-function-docstring",
+        "-function-docstring-header",
+        "-function-docstring-return",
+    ],
+    no_sandbox = True,
+    tags = ["no-remote"],
+    workspace = "//:MODULE.bazel",
+)
+
+cmake(
+    name = "sdl3",
+    cache_entries = {
+        "CMAKE_C_FLAGS": "-fPIC",
+    },
+    lib_source = "@sdl3//:all_srcs",
 )
