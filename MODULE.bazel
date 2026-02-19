@@ -108,3 +108,7 @@ http_archive(
         # "https://github.com/libsdl-org/SDL/archive/refs/tags/release-3.4.0.tar.gz"
     ],
 )
+
+# TODO: we need to have a look at this stuff: https://bazel.build/external/migration
+# https://bazel.build/external/faq
+# https://github.com/bazelbuild/examples/tree/main/bzlmod
