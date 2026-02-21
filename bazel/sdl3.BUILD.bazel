@@ -62,7 +62,7 @@ cc_library(
         "@platforms//os:windows": glob([
             "src/dialog/windows/*.c",
         ]),
-    "//conditions:default": [],
+        "//conditions:default": [],
     }),
     deps = [":sdl3_internal"],
 )
@@ -85,7 +85,7 @@ cc_library(
         "@platforms//os:windows": glob([
             "src/filesystem/windows/*.c",
         ]),
-    "//conditions:default": [],
+        "//conditions:default": [],
     }),
     deps = [":sdl3_internal"],
 )
@@ -99,7 +99,7 @@ cc_library(
             "src/gpu/vulkan/*.c",
             "src/gpu/vulkan/*.h",
         ]),
-    "//conditions:default": [],
+        "//conditions:default": [],
     }),
     deps = [":sdl3_internal"],
 )
@@ -111,7 +111,7 @@ cc_library(
             "src/haptic/windows/*.c",
             "src/haptic/windows/*.h",
         ]),
-    "//conditions:default": [],
+        "//conditions:default": [],
     }),
     deps = [":sdl3_internal"],
 )
@@ -123,14 +123,14 @@ cc_library(
             "src/hidapi/windows/*.c",
             "src/hidapi/windows/*.h",
         ]),
-    "//conditions:default": [],
+        "//conditions:default": [],
     }),
     srcs = glob(["src/hidapi/*.c", "src/hidapi/*.h"]) + select({
         "@platforms//os:windows": glob([
             "src/hidapi/windows/*.c",
             "src/hidapi/windows/*.h",
         ]),
-    "//conditions:default": [],
+        "//conditions:default": [],
     }),
     deps = [":sdl3_internal"],
 )
@@ -142,7 +142,7 @@ cc_library(
             "src/io/windows/*.c",
             "src/io/generic/*.c",
         ]),
-    "//conditions:default": [],
+        "//conditions:default": [],
     }),
     deps = [":sdl3_internal"],
 )
@@ -158,7 +158,7 @@ cc_library(
             "src/joystick/hidapi/*.c",
             "src/joystick/hidapi/*.h",
         ]),
-    "//conditions:default": [],
+        "//conditions:default": [],
     }),
     deps = [":sdl3_internal"],
 )
@@ -175,7 +175,7 @@ cc_library(
         "@platforms//os:windows": glob([
             "src/loadso/windows/*.c",
         ]),
-    "//conditions:default": [],
+        "//conditions:default": [],
     }),
     deps = [":sdl3_internal"],
 )
@@ -186,7 +186,7 @@ cc_library(
         "@platforms//os:windows": glob([
             "src/locale/windows/*.c",
         ]),
-    "//conditions:default": [],
+        "//conditions:default": [],
     }),
     deps = [":sdl3_internal"],
 )
@@ -197,7 +197,7 @@ cc_library(
         "@platforms//os:windows": glob([
             "src/misc/windows/*.c",
         ]),
-    "//conditions:default": [],
+        "//conditions:default": [],
     }),
     deps = [":sdl3_internal"],
 )
@@ -208,7 +208,7 @@ cc_library(
         "@platforms//os:windows": glob([
             "src/power/windows/*.c",
         ]),
-    "//conditions:default": [],
+        "//conditions:default": [],
     }),
     deps = [":sdl3_internal"],
 )
@@ -219,7 +219,7 @@ cc_library(
         "@platforms//os:windows": glob([
             "src/process/windows/*.c",
         ]),
-    "//conditions:default": [],
+        "//conditions:default": [],
     }),
     deps = [":sdl3_internal"],
 )
@@ -245,7 +245,7 @@ cc_library(
             "src/render/vulkan/*.c",
             "src/render/vulkan/*.h",
         ]),
-    "//conditions:default": [],
+        "//conditions:default": [],
     }),
     deps = [":sdl3_internal"],
 )
@@ -259,7 +259,7 @@ cc_library(
             "src/sensor/dummy/*.c",
             "src/sensor/dummy/*.h",
         ]),
-    "//conditions:default": [],
+        "//conditions:default": [],
     }),
     deps = [":sdl3_internal"],
 )
@@ -278,7 +278,7 @@ cc_library(
             "src/storage/steam/*.c",
             "src/storage/steam/*.h",
         ]),
-    "//conditions:default": [],
+        "//conditions:default": [],
     }),
     deps = [":sdl3_internal"],
 )
@@ -298,7 +298,7 @@ cc_library(
             "src/thread/generic/*.c",
             "src/thread/generic/*.h",
         ]),
-    "//conditions:default": [],
+        "//conditions:default": [],
     }),
     deps = [":sdl3_internal"],
 )
@@ -309,7 +309,7 @@ cc_library(
         "@platforms//os:windows": glob([
             "src/time/windows/*.c",
         ]),
-    "//conditions:default": [],
+        "//conditions:default": [],
     }),
     deps = [":sdl3_internal"],
 )
@@ -320,7 +320,7 @@ cc_library(
         "@platforms//os:windows": glob([
             "src/timer/windows/*.c",
         ]),
-    "//conditions:default": [],
+        "//conditions:default": [],
     }),
     deps = [":sdl3_internal"],
 )
@@ -331,7 +331,7 @@ cc_library(
         "@platforms//os:windows": glob([
             "src/tray/windows/*.c",
         ]),
-    "//conditions:default": [],
+        "//conditions:default": [],
     }),
     deps = [":sdl3_internal"],
 )
@@ -350,7 +350,7 @@ cc_library(
             "src/video/yuv2rgb/*.c",
             "src/video/yuv2rgb/*.h",
         ]),
-    "//conditions:default": [],
+        "//conditions:default": [],
     }),
     deps = [":sdl3_internal"],
 )
@@ -391,7 +391,7 @@ cc_library(
             "src/main/windows/*.c",
             "src/main/generic/*.c",
         ]),
-    "//conditions:default": [],
+        "//conditions:default": [],
     }),
 )
 
@@ -404,7 +404,7 @@ cc_library(
             "src/main/windows/*.c",
             "src/main/generic/*.c",
         ]),
-    "//conditions:default": [],
+        "//conditions:default": [],
     }),
 )
 
