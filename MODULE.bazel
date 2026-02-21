@@ -1,3 +1,4 @@
+# buildifier: disable=module-docstring
 module(name = "guis-in-c")
 
 # https://github.com/bazelbuild/bazel-skylib
@@ -97,16 +98,14 @@ http_archive(
 )
 
 # https://github.com/libsdl-org/SDL
-http_archive(
-    name = "sdl3",
-    build_file_content = _ALL_CONTENT,
-    # sha256-CCy/X0KeDYCCD2jcK1B6lNTMG05wgXsRm7uOxqaVhLg=
-    # sha256 = "sha256:082cbf5f429e0d80820f68dc2b507a94d4cc1b4e70817b119bbb8ec6a69584b8",
-    strip_prefix = "SDL3-3.4.0",
-    urls = [
-        "https://github.com/libsdl-org/SDL/releases/download/release-3.4.0/SDL3-3.4.0.tar.gz",
-        # "https://github.com/libsdl-org/SDL/archive/refs/tags/release-3.4.0.tar.gz"
-    ],
+bazel_dep(name = "sdl3", version = "3.2.8")
+archive_override(
+    module_name = "sdl3",
+    build_file = "@//bazel:sdl3.BUILD.bazel",
+    integrity = "sha256-EziPq7Nh3naOzfK2XlK7J9EFTK5sy2lCupJuN44A2wM=",
+    patches = ["bazel/patches/sdl3-module.patch"],
+    strip_prefix = "SDL3-3.2.8",
+    urls = ["https://github.com/libsdl-org/SDL/releases/download/release-3.2.8/SDL3-3.2.8.tar.gz"],
 )
 
 # TODO: we need to have a look at this stuff: https://bazel.build/external/migration

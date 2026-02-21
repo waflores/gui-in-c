@@ -7,5 +7,6 @@ cc_binary(
     srcs = ["hello-world-sdl3.c"],
     deps = [
         "@sdl3",
+        "@sdl3//:main",
     ],
 )

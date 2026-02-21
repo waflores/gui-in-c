@@ -53,11 +53,3 @@ buildifier_test(
     tags = ["no-remote"],
     workspace = "//:MODULE.bazel",
 )
-
-cmake(
-    name = "sdl3",
-    cache_entries = {
-        "CMAKE_C_FLAGS": "-fPIC",
-    },
-    lib_source = "@sdl3//:all_srcs",
-)

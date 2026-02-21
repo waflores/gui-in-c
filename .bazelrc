@@ -20,9 +20,6 @@ common --enable_bzlmod --noenable_workspace
 common --fission=yes
 common --compilation_mode=dbg
 
-# build --host_platform=@rules_nixpkgs_core//platforms:host
-# common --noincompatible_disallow_empty_glob
-
 # Turn on all the strict error checking for CC
 common:linux --copt=-g3  # Add more debug stuff
 common:linux --copt=-pedantic-errors

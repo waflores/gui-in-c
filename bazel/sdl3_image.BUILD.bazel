@@ -1,0 +1,11 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+cc_library(
+    name = "sdl3_image",
+    visibility = ["//visibility:public"],
+    includes = ["include"],
+    strip_include_prefix = "include",
+    hdrs = glob(["include/SDL3_image/*.h"]),
+    srcs = glob(["src/*.h", "src/*.c"]),
+    deps = ["@sdl3"],
+)

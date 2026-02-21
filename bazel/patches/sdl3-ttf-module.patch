@@ -1,0 +1,9 @@
+--- /dev/null
++++ MODULE.bazel
+@@ -0,0 +1,6 @@
++module(name = "sdl3_ttf")
++
++bazel_dep(name = "rules_cc", version = "0.1.1")
++bazel_dep(name = "platforms", version = "0.0.11")
++bazel_dep(name = "sdl3", version = "3.2.8")
++bazel_dep(name = "freetype", version = "2.9")
