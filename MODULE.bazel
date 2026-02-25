@@ -5,7 +5,7 @@ module(name = "guis-in-c")
 bazel_dep(name = "bazel_skylib", version = "1.9.0")
 
 # https://github.com/bazelbuild/rules_cc
-bazel_dep(name = "rules_cc", version = "0.2.16")
+bazel_dep(name = "rules_cc", version = "0.2.17")
 
 # https://github.com/bazelbuild/platforms
 bazel_dep(name = "platforms", version = "1.0.0")
@@ -19,10 +19,8 @@ bazel_dep(name = "glib", version = "2.82.2.bcr.8")
 bazel_dep(name = "hedron_compile_commands", dev_dependency = True)
 git_override(
     module_name = "hedron_compile_commands",
-    commit = "abb61a688167623088f8768cc9264798df6a9d10",
+    commit = "7fe1eab26d2b8eeb5e1c6a2f38bddb001e3f9696",
     remote = "https://github.com/hedronvision/bazel-compile-commands-extractor.git",
-    # Replace the commit hash (above) with the latest (https://github.com/hedronvision/bazel-compile-commands-extractor/commits/main).
-    # Even better, set up Renovate and let it do the work for you (see "Suggestion: Updates" in the README).
 )
 # bazel run @hedron_compile_commands//:refresh_all
 
@@ -33,7 +31,7 @@ git_override(
 bazel_dep(name = "rules_qt")
 git_override(
     module_name = "rules_qt",
-    commit = "859cf10e7fbc5be55f6ac25b08c2d6a6dbf1d899",
+    commit = "a986944a1f0eb0aa5e5fedafdf3ac72577f5c628",
     remote = "https://github.com/Vertexwahn/rules_qt6.git",
 )
 
@@ -69,7 +67,7 @@ bazel_dep(name = "bazelrc-preset.bzl", version = "1.9.2")
 bazel_dep(name = "rules_foreign_cc")
 git_override(
     module_name = "rules_foreign_cc",
-    commit = "aeb4b899d4ded316ef1b32fcdc56306886a3f02c",
+    commit = "16566f37f1220b996efc265ab848a2d3f52a488c",
     remote = "https://github.com/bazel-contrib/rules_foreign_cc.git",
 )
 
