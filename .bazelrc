@@ -35,9 +35,7 @@ common:linux --cxxopt=-Werror
 common:linux --conlyopt=-std=c23  # Needed for c programs and not angering c++ ones
 
 common:windows --enable_runfiles # https://github.com/bazelbuild/bazel/issues/8843
-
-common:windows --extra_toolchains=@local_config_cc//:cc-toolchain-x64_windows-clang-cl --extra_execution_platforms=//:x64_windows-clang-cl
-
+common:windows --extra_execution_platforms=@toolchains_llvm//platforms:windows-x86_64
 
 # Visual Studio 2022
 ## NOTE: We need to have WSL running in the background for some of the compilation process
