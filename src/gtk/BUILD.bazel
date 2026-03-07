@@ -1,35 +1,35 @@
-load("@rules_cc//cc:cc_binary.bzl", "cc_binary")
+# load("@rules_cc//cc:cc_binary.bzl", "cc_binary")
 
-# Have a look at this: https://github.com/tweag/rules_nixpkgs/blob/master/examples/toolchains/cc_with_deps/WORKSPACE
+# # Have a look at this: https://github.com/tweag/rules_nixpkgs/blob/master/examples/toolchains/cc_with_deps/WORKSPACE
 
-cc_binary(
-    name = "hello-world-gtk",
-    srcs = ["hello-world-gtk.c"],
-    deps = [
-        "@cairo",
-        "@gdk-pixbuf",
-        "@glib//gio",
-        "@glib//glib",
-        "@glib//gobject",
-        "@graphene",
-        "@gtk4",
-        "@harfbuzz",
-        "@pango",
-    ],
-)
+# cc_binary(
+#     name = "hello-world-gtk",
+#     srcs = ["hello-world-gtk.c"],
+#     deps = [
+#         "@cairo",
+#         "@gdk-pixbuf",
+#         "@glib//gio",
+#         "@glib//glib",
+#         "@glib//gobject",
+#         "@graphene",
+#         "@gtk4",
+#         "@harfbuzz",
+#         "@pango",
+#     ],
+# )
 
-cc_binary(
-    name = "helloworld",
-    srcs = ["gtkmain.c"],
-    deps = [
-        "@cairo",
-        "@gdk-pixbuf",
-        "@glib//gio",
-        "@glib//glib",
-        "@glib//gobject",
-        "@graphene",
-        "@gtk4",
-        "@harfbuzz",
-        "@pango",
-    ],
-)
+# cc_binary(
+#     name = "helloworld",
+#     srcs = ["gtkmain.c"],
+#     deps = [
+#         "@cairo",
+#         "@gdk-pixbuf",
+#         "@glib//gio",
+#         "@glib//glib",
+#         "@glib//gobject",
+#         "@graphene",
+#         "@gtk4",
+#         "@harfbuzz",
+#         "@pango",
+#     ],
+# )

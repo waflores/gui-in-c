@@ -3,7 +3,7 @@
 #include <cstdint>
 #include <iostream>
 #include <stdio.h>
-#include <string.h>
+#include <string>
 
 const auto sizeOfBuffer = 20;
 

@@ -109,3 +109,7 @@ archive_override(
 # TODO: we need to have a look at this stuff: https://bazel.build/external/migration
 # https://bazel.build/external/faq
 # https://github.com/bazelbuild/examples/tree/main/bzlmod
+
+# Setup Clang
+cc_configure = use_extension("@rules_cc//cc:extensions.bzl", "cc_configure_extension")
+use_repo(cc_configure, "local_config_cc")

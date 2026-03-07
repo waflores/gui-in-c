@@ -1,6 +1,5 @@
 // declaring_a_union.cpp
 // for MyVariant
-#include <new>
 #include <utility>
 
 // for sample objects and output
@@ -106,10 +105,10 @@ public:
     case Kind::None:
       break;
     case Kind::A:
-      new (&a_) A(move(other.a_));
+      new (&a_) A(std::move(other.a_));
       break;
     case Kind::B:
-      new (&b_) B(move(other.b_));
+      new (&b_) B(std::move(other.b_));
       break;
     case Kind::Integer:
       i_ = other.i_;
@@ -151,10 +150,10 @@ public:
       this->~MyVariant();
       break;
     case Kind::A:
-      *this = move(other.a_);
+      *this = std::move(other.a_);
       break;
     case Kind::B:
-      *this = move(other.b_);
+      *this = std::move(other.b_);
       break;
     case Kind::Integer:
       *this = other.i_;
@@ -169,7 +168,7 @@ public:
 
   MyVariant(const A &a) : kind_(Kind::A), a_(a) {}
 
-  MyVariant(A &&a) : kind_(Kind::A), a_(move(a)) {}
+  MyVariant(A &&a) : kind_(Kind::A), a_(std::move(a)) {}
 
   MyVariant &operator=(const A &a) {
     if (kind_ != Kind::A) {
@@ -184,16 +183,16 @@ public:
   MyVariant &operator=(A &&a) {
     if (kind_ != Kind::A) {
       this->~MyVariant();
-      new (this) MyVariant(move(a));
+      new (this) MyVariant(std::move(a));
     } else {
-      a_ = move(a);
+      a_ = std::move(a);
     }
     return *this;
   }
 
   MyVariant(const B &b) : kind_(Kind::B), b_(b) {}
 
-  MyVariant(B &&b) : kind_(Kind::B), b_(move(b)) {}
+  MyVariant(B &&b) : kind_(Kind::B), b_(std::move(b)) {}
 
   MyVariant &operator=(const B &b) {
     if (kind_ != Kind::B) {
@@ -208,9 +207,9 @@ public:
   MyVariant &operator=(B &&b) {
     if (kind_ != Kind::B) {
       this->~MyVariant();
-      new (this) MyVariant(move(b));
+      new (this) MyVariant(std::move(b));
     } else {
-      b_ = move(b);
+      b_ = std::move(b);
     }
     return *this;
   }
@@ -291,7 +290,7 @@ void niam() {
 
   b.vec = {10, 20, 30, 40, 50};
 
-  mv_1 = move(b);
+  mv_1 = std::move(b);
   cout << "After move, mv_1 = b: vec.size = " << mv_1.GetB().vec.size() << endl;
 
   cout << endl << "Press a letter" << endl;
