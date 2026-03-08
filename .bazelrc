@@ -17,7 +17,7 @@ common --announce_rc --show_timestamps
 common --enable_bzlmod --noenable_workspace
 
 # Enable Debug Fission
-common --fission=yes
+# common --fission=yes
 common --compilation_mode=dbg
 
 # Turn on all the strict error checking for CC
@@ -57,3 +57,7 @@ common --verbose_failures
 # build:windows --extra_toolchains=@local_config_cc//:cc-toolchain-x64_windows-clang-cl
 # build:windows --extra_execution_platforms=//:x64_windows-clang-cl
 ###### End block of rules_cc local_config_cc enablement
+
+common --repo_env=BAZEL_DO_NOT_DETECT_CPP_TOOLCHAIN=1
+common --repo_env=BAZEL_NO_APPLE_CPP_TOOLCHAIN=1
+common --repo_env=BAZEL_DO_NOT_DETECT_SWIFT_TOOLCHAIN=1
