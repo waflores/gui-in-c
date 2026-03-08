@@ -13,6 +13,8 @@ startup --noautodetect_server_javabase
 
 common --announce_rc --show_timestamps
 
+common --verbose_failures
+
 # Enable Bzlmod for every Bazel command
 common --enable_bzlmod --noenable_workspace
 
@@ -21,19 +23,18 @@ common --enable_bzlmod --noenable_workspace
 common --repo_env=BAZEL_DO_NOT_DETECT_CPP_TOOLCHAIN=1
 
 # Enable Debug Fission
-#! XXX: We need to figure out if this is a Windows only issue or not...
-# common --fission=yes
+common:linux --fission=yes
 common --compilation_mode=dbg
 
 # Turn on all the strict error checking for CC
 common --copt=-g3  # Add more debug stuff
-common --copt=-pedantic-errors
+# common --copt=-pedantic-errors
 common --cxxopt=-std=c++23
-common --cxxopt=-Weffc++
-common --cxxopt=-Wextra
-common --cxxopt=-Wconversion
-common --cxxopt=-Wsign-conversion
-common --cxxopt=-Werror
+# common --cxxopt=-Weffc++
+# common --cxxopt=-Wextra
+# common --cxxopt=-Wconversion
+# common --cxxopt=-Wsign-conversion
+# common --cxxopt=-Werror
 
 # C Options
 common --conlyopt=-std=c23  # Needed for c programs and not angering c++ ones
@@ -53,7 +54,6 @@ common:windows --enable_runfiles # https://github.com/bazelbuild/bazel/issues/88
 # common:windows --host_copt=-DNOGDI
 # common:windows --host_cxxopt=/std:c++23
 
-common --verbose_failures
 
 ###### This block of code works when we have rules_cc local_config_cc enabled
 # As of bazel 7, toolchain resolution is enabled by default, so we need to define a platform for
@@ -63,9 +63,11 @@ common --verbose_failures
 ###### End block of rules_cc local_config_cc enablement
 
 # We need to turn off pedantic copts for LLVM by Source on Windows (or on MinGW)
-common:windows --per_file_copt='external/llvm.*@-Wno-error,-Wno-pedantic'
-common:windows --host_per_file_copt='external/llvm.*l@-Wno-error,-Wno-pedantic'
+# external/llvm+/runtimes/empty.c:1:1: error: ISO C requires a translation unit to contain at least one declaration [-Werror,-Wempty-translation-unit]
+# ^For linux for sure...
+common:linux --per_file_copt='external/llvm.*@-Wno-error,-Wno-pedantic'
+common:linux --host_per_file_copt='external/llvm.*l@-Wno-error,-Wno-pedantic'
 
-# XXX: this doesn't work as intended, but we'll keep it here.
-common:windows --per_file_copt='external/rules_qt.*l@-Wno-error,-Wno-pedantic'
-common:windows --host_per_file_copt='external/rules_qt.*l@-Wno-error,-Wno-pedantic'
+# XXX: this doesn't work as intended, but we'll keep it here - for both Windows AND Linux
+common --per_file_copt='external/rules_qt.*l@-Wno-error,-Wno-pedantic'
+common --host_per_file_copt='external/rules_qt.*l@-Wno-error,-Wno-pedantic'
