@@ -54,26 +54,18 @@ common:windows --host_cxxopt=/std:c++23
 # We use LLVM's MSVC-compatible compiler driver to compile our code on Windows,
 # as opposed to using MSVC directly. This enables us to use the "same" compiler
 # frontend on Linux, macOS, and Windows, massively reducing the effort required
-# to compile workerd on Windows. Notably, this provides proper support for
+# to compile on Windows. Notably, this provides proper support for
 # `#pragma once` when using symlinked virtual includes, `__atomic_*` functions,
 # a standards-compliant preprocessor, support for GNU statement expressions
 # used by some KJ macros, and understands the `.c++` extension by default.
-build:windows --compiler=clang-cl
+
 build --features=external_include_paths --host_features=external_include_paths
 build --verbose_failures
 
 # This is the hermetic toolchain:
-common:windows --extra_execution_platforms=@toolchains_llvm//platforms:windows-x86_64
-
+common:windows --extra_execution_platforms=@toolchains_llvm//platforms:windows-x86_64 --extra_toolchains=@llvm_toolchain//:cc-toolchain-x86_64-windows
 
 ###### This block of code works when we have rules_cc local_config_cc enabled
-# We use LLVM's MSVC-compatible compiler driver to compile our code on Windows,
-# as opposed to using MSVC directly. This enables us to use the "same" compiler
-# frontend on Linux, macOS, and Windows, massively reducing the effort required
-# to compile workerd on Windows. Notably, this provides proper support for
-# `#pragma once` when using symlinked virtual includes, `__atomic_*` functions,
-# a standards-compliant preprocessor, support for GNU statement expressions
-# used by some KJ macros, and understands the `.c++` extension by default.
 # As of bazel 7, toolchain resolution is enabled by default, so we need to define a platform for
 # the clang-cl build.
 # build:windows --extra_toolchains=@local_config_cc//:cc-toolchain-x64_windows-clang-cl
