@@ -61,3 +61,5 @@ common --verbose_failures
 common --repo_env=BAZEL_DO_NOT_DETECT_CPP_TOOLCHAIN=1
 common --repo_env=BAZEL_NO_APPLE_CPP_TOOLCHAIN=1
 common --repo_env=BAZEL_DO_NOT_DETECT_SWIFT_TOOLCHAIN=1
+build --per_file_copt='external/llvm.*@-Wno-error,-Wno-pedantic'
+build --host_per_file_copt='externa/llvm.*l@-Wno-error,-Wno-pedantic'

@@ -121,4 +121,5 @@ archive_override(
 
 # Setting up LLVM (for Linux)
 bazel_dep(name = "llvm", version = "0.6.5")
+
 register_toolchains("@llvm//toolchain:all")
