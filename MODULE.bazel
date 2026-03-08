@@ -9,7 +9,7 @@ bazel_dep(name = "rules_cc", version = "0.2.17")
 single_version_override(
     module_name = "rules_cc",
     patch_strip = 1,
-    patches = ["//tools/patches:rules_cc-windows_support.patch"],  # Add Windows support, patch of https://github.com/bazel-contrib/toolchains_llvm/pull/642
+    patches = ["bazel/patches/rules_cc-windows_support.patch"],  # Add Windows support, patch of https://github.com/bazel-contrib/toolchains_llvm/pull/642
 )
 
 # https://github.com/bazelbuild/platforms
@@ -18,6 +18,12 @@ bazel_dep(name = "platforms", version = "1.0.0")
 # https://github.com/keith/buildifier-prebuilt
 bazel_dep(name = "buildifier_prebuilt", version = "8.2.1.2")
 bazel_dep(name = "glib", version = "2.82.2.bcr.8")
+
+# This LLVM toolchain provides a cross platform Hermetic C/C++ compiler
+# https://github.com/cerisier/toolchains_llvm_bootstrapped
+bazel_dep(name = "llvm", version = "0.6.5")
+
+register_toolchains("@llvm//toolchain:all")
 
 # Hedron's Compile Commands Extractor for Bazel
 # https://github.com/hedronvision/bazel-compile-commands-extractor
@@ -47,12 +53,14 @@ qt.install(
     os = "linux",
     version = "6.8.3",
 )
+
+# TODO(@waflores): we need to figure out how to integrate clang with this environment
 qt.install(
     name = "qt_windows_x86_64",
     build_file = "@rules_qt//extension:qt/6.8.3/windows_x86_64.BUILD",
     os = "windows",
     version = "6.8.3",
-    windows_architecture = "win64_msvc2022",
+    windows_architecture = "win64_msvc2022",  # We could try: win64_mingw to see if this works correctly
 )
 use_repo(
     qt,
@@ -65,10 +73,10 @@ register_toolchains(
     dev_dependency = True,
 )
 
-# TODO(@waflores) 2025-06-03: Figure out how to register clang/gcc properly in the repo
-
 # https://github.com/bazel-contrib/bazelrc-preset.bzl
 bazel_dep(name = "bazelrc-preset.bzl", version = "1.9.2")
+
+# https://github.com/bazel-contrib/rules_foreign_cc
 bazel_dep(name = "rules_foreign_cc")
 git_override(
     module_name = "rules_foreign_cc",
@@ -114,12 +122,3 @@ archive_override(
 # TODO: we need to have a look at this stuff: https://bazel.build/external/migration
 # https://bazel.build/external/faq
 # https://github.com/bazelbuild/examples/tree/main/bzlmod
-
-# Setup Clang
-# cc_configure = use_extension("@rules_cc//cc:extensions.bzl", "cc_configure_extension")
-# use_repo(cc_configure, "local_config_cc")
-
-# Setting up LLVM (for Linux)
-bazel_dep(name = "llvm", version = "0.6.5")
-
-register_toolchains("@llvm//toolchain:all")

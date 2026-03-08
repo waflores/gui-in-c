@@ -540,7 +540,7 @@
     },
     "@@rules_qt+//extension:qt.bzl%fetch": {
       "general": {
-        "bzlTransitiveDigest": "+wmXAn/rrcsNKiW6OUivYSeVfd3AXW5c+xNYlBdh9q4=",
+        "bzlTransitiveDigest": "W/BNl7AIzJb5IKKb+RnKbX3qa3R6N8ijXWB7HcJyPBQ=",
         "usagesDigest": "Uawcuxz3YCa8glbtBrghNWFMLIluPmRq9p2bSG7ywSk=",
         "recordedInputs": [
           "REPO_MAPPING:,rules_qt rules_qt+",

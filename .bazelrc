@@ -16,38 +16,42 @@ common --announce_rc --show_timestamps
 # Enable Bzlmod for every Bazel command
 common --enable_bzlmod --noenable_workspace
 
+# Tell Bazel to not detect the CC toolchain automatically from the host machine to improve hermeticity.
+# This requires you to declare and register a CC toolchain explicitly.
+common --repo_env=BAZEL_DO_NOT_DETECT_CPP_TOOLCHAIN=1
+
 # Enable Debug Fission
+#! XXX: We need to figure out if this is a Windows only issue or not...
 # common --fission=yes
 common --compilation_mode=dbg
 
 # Turn on all the strict error checking for CC
-common:linux --copt=-g3  # Add more debug stuff
-common:linux --copt=-pedantic-errors
-
-common:linux --cxxopt=-std=c++23
-common:linux --cxxopt=-Weffc++
-common:linux --cxxopt=-Wextra
-common:linux --cxxopt=-Wconversion
-common:linux --cxxopt=-Wsign-conversion
-common:linux --cxxopt=-Werror
+common --copt=-g3  # Add more debug stuff
+common --copt=-pedantic-errors
+common --cxxopt=-std=c++23
+common --cxxopt=-Weffc++
+common --cxxopt=-Wextra
+common --cxxopt=-Wconversion
+common --cxxopt=-Wsign-conversion
+common --cxxopt=-Werror
 
 # C Options
-common:linux --conlyopt=-std=c23  # Needed for c programs and not angering c++ ones
+common --conlyopt=-std=c23  # Needed for c programs and not angering c++ ones
 
 common:windows --enable_runfiles # https://github.com/bazelbuild/bazel/issues/8843
 
 # Visual Studio 2022
 ## NOTE: We need to have WSL running in the background for some of the compilation process
 # common:windows --define compiler=vs2022
-common:windows --cxxopt=/std:c++20  # Qt requires a C++17 compiler, and a suitable value for __cplusplus.
-common:windows --cxxopt=/Zc:__cplusplus #  On MSVC, you must pass the /Zc:__cplusplus option to the compiler.
-common:windows --cxxopt=/permissive-  # QtCore/qglobal.h(120): error C2338
-common:windows --cxxopt=/Z7
-common:windows --copt=-DWIN32_LEAN_AND_MEAN
-common:windows --copt=-DNOGDI
-common:windows --host_copt=-DWIN32_LEAN_AND_MEAN
-common:windows --host_copt=-DNOGDI
-common:windows --host_cxxopt=/std:c++23
+# common:windows --cxxopt=/std:c++20  # Qt requires a C++17 compiler, and a suitable value for __cplusplus.
+# common:windows --cxxopt=/Zc:__cplusplus #  On MSVC, you must pass the /Zc:__cplusplus option to the compiler.
+# common:windows --cxxopt=/permissive-  # QtCore/qglobal.h(120): error C2338
+# common:windows --cxxopt=/Z7
+# common:windows --copt=-DWIN32_LEAN_AND_MEAN
+# common:windows --copt=-DNOGDI
+# common:windows --host_copt=-DWIN32_LEAN_AND_MEAN
+# common:windows --host_copt=-DNOGDI
+# common:windows --host_cxxopt=/std:c++23
 
 common --verbose_failures
 
@@ -58,8 +62,10 @@ common --verbose_failures
 # build:windows --extra_execution_platforms=//:x64_windows-clang-cl
 ###### End block of rules_cc local_config_cc enablement
 
-common --repo_env=BAZEL_DO_NOT_DETECT_CPP_TOOLCHAIN=1
-common --repo_env=BAZEL_NO_APPLE_CPP_TOOLCHAIN=1
-common --repo_env=BAZEL_DO_NOT_DETECT_SWIFT_TOOLCHAIN=1
-build --per_file_copt='external/llvm.*@-Wno-error,-Wno-pedantic'
-build --host_per_file_copt='externa/llvm.*l@-Wno-error,-Wno-pedantic'
+# We need to turn off pedantic copts for LLVM by Source on Windows (or on MinGW)
+common:windows --per_file_copt='external/llvm.*@-Wno-error,-Wno-pedantic'
+common:windows --host_per_file_copt='external/llvm.*l@-Wno-error,-Wno-pedantic'
+
+# XXX: this doesn't work as intended, but we'll keep it here.
+common:windows --per_file_copt='external/rules_qt.*l@-Wno-error,-Wno-pedantic'
+common:windows --host_per_file_copt='external/rules_qt.*l@-Wno-error,-Wno-pedantic'

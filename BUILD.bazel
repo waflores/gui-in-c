@@ -24,6 +24,11 @@ refresh_compile_commands(
     # Wildcard patterns, like //... for everything, *are* allowed here, just like a build.
     # As are additional targets (+) and subtractions (-), like in bazel query https://docs.bazel.build/versions/main/query.html#expressions
     # And if you're working on a header-only library, specify a test or binary target that compiles it.
+
+    # XXX: For now, we will skip over Qt for now
+    targets = [
+        "//... -//src/qt:helloworld",
+    ],
 )
 
 cmake(
