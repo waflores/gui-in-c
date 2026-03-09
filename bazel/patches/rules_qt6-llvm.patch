@@ -8,32 +8,136 @@ index 869b45a..2f2c785 100644
      "win64_msvc2022": "win64_msvc2022_64",
 +    "win64_llvm_mingw": "win64_llvm_mingw"
  }
- 
+
  def _get_paths_for_version(version):
 diff --git a/extension/qt/6.8.3/windows_x86_64.BUILD b/extension/qt/6.8.3/windows_x86_64.BUILD
-index a71ca09..6e82877 100644
+index a71ca09..1b9f8f5 100644
 --- a/extension/qt/6.8.3/windows_x86_64.BUILD
 +++ b/extension/qt/6.8.3/windows_x86_64.BUILD
-@@ -3,8 +3,8 @@ load("@rules_cc//cc:cc_library.bzl", "cc_library")
- load("@rules_qt//:qt_libraries.bzl", "QT_LIBRARIES")
- 
- # Create a mapping of available libraries by checking what .lib files exist
+@@ -1,56 +1,33 @@
+-load("@rules_cc//cc:cc_import.bzl", "cc_import")
+ load("@rules_cc//cc:cc_library.bzl", "cc_library")
+-load("@rules_qt//:qt_libraries.bzl", "QT_LIBRARIES")
+-
+-# Create a mapping of available libraries by checking what .lib files exist
 -_available_libs = glob(["lib/Qt6*.lib"])
 -_available_lib_names = [lib.replace("lib/", "").replace(".lib", "") for lib in _available_libs]
-+_available_libs = glob(["lib/*Qt6*.a"])
-+_available_lib_names = [lib.replace("lib/", "").replace(".a", "") for lib in _available_libs]
- 
+-
+-[
+-    cc_import(
+-        name = "qt_%s_windows_import" % name,
+-        hdrs = glob(
+-            ["include/%s/**" % include_folder],
+-            allow_empty = True,
+-        ),
+-        interface_library = "lib/%s.lib" % library_name,
+-        shared_library = "bin/%s.dll" % library_name,
+-        target_compatible_with = ["@platforms//os:windows"],
+-    )
+-    for name, include_folder, library_name, _ in QT_LIBRARIES
+-    if library_name in _available_lib_names
+-]
++load(":qt_libraries.bzl", "QT_LIBRARIES")
+
  [
-     cc_import(
-@@ -13,7 +13,7 @@ _available_lib_names = [lib.replace("lib/", "").replace(".lib", "") for lib in _
+     cc_library(
+         name = "qt_%s_windows" % name,
++        srcs = glob(
++            [
++                "lib/lib%s.a*" % library_name,
++            ],
++            allow_empty = True,
++        ),
+         hdrs = glob(
              ["include/%s/**" % include_folder],
              allow_empty = True,
          ),
--        interface_library = "lib/%s.lib" % library_name,
-+        interface_library = "lib/%s.a" % library_name,
-         shared_library = "bin/%s.dll" % library_name,
++        data = glob(
++            [
++                "lib/lib%s.a*" % library_name,
++            ],
++            allow_empty = True,
++        ),
+         includes = [
+             "include",
+             "include/%s" % include_folder,
+         ],
          target_compatible_with = ["@platforms//os:windows"],
+         visibility = ["//visibility:public"],
+-        deps = [":qt_%s_windows_import" % name],
      )
+     for name, include_folder, library_name, _ in QT_LIBRARIES
+-    if library_name in _available_lib_names
+-]
+-
+-# Create stub libraries for Qt modules that don't exist on Windows
+-# This prevents build failures when code depends on `:qt` which includes all modules
+-[
+-    cc_library(
+-        name = "qt_%s_windows" % name,
+-        target_compatible_with = ["@platforms//os:windows"],
+-        visibility = ["//visibility:public"],
+-        tags = ["manual"],  # Don't build unless explicitly requested
+-    )
+-    for name, _, library_name, _ in QT_LIBRARIES
+-    if library_name not in _available_lib_names
+ ]
+
+ cc_library(
+@@ -64,19 +41,19 @@ cc_library(
+
+ filegroup(
+     name = "uic",
+-    srcs = ["bin/uic.exe"],
++    srcs = ["libexec/uic"],
+     visibility = ["//visibility:public"],
+ )
+
+ filegroup(
+     name = "moc",
+-    srcs = ["bin/moc.exe"],
++    srcs = ["libexec/moc"],
+     visibility = ["//visibility:public"],
+ )
+
+ filegroup(
+     name = "rcc",
+-    srcs = ["bin/rcc.exe"],
++    srcs = ["libexec/rcc"],
+     visibility = ["//visibility:public"],
+ )
+
+@@ -93,12 +70,25 @@ filegroup(
+ )
+
+ filegroup(
+-    name = "dll_files",
+-    srcs = glob(["bin/*.dll"]),
++    name = "modules_files",
++    srcs = glob(["modules/**/*"]),
++    visibility = ["//visibility:public"],
++)
++
++filegroup(
++    name = "metatypes_files",
++    srcs = glob(
++        ["metatypes/**/*"],
++        allow_empty = True,
++    ),
+     visibility = ["//visibility:public"],
+ )
+
+ exports_files(
+-    ["qml", "plugins", "lib"],
++    [
++        "qml",
++        "plugins",
++        "lib",
++    ],
+     visibility = ["//visibility:public"],
+-)
++)
++
 diff --git a/extension/qt_modules.bzl b/extension/qt_modules.bzl
 index b04e34f..054323e 100644
 --- a/extension/qt_modules.bzl

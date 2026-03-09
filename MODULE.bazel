@@ -56,13 +56,13 @@ qt.install(
     version = "6.8.3",
 )
 
-# TODO(@waflores): we need to figure out how to integrate clang with this environment
+# The patch attempts to integrate Clang within Windows; but requires some more refinement.
 qt.install(
     name = "qt_windows_x86_64",
     build_file = "@rules_qt//extension:qt/6.8.3/windows_x86_64.BUILD",
     os = "windows",
     version = "6.8.3",
-    windows_architecture = "win64_llvm_mingw",  # We could try: win64_mingw to see if this works correctly
+    windows_architecture = "win64_llvm_mingw",
 )
 use_repo(
     qt,
