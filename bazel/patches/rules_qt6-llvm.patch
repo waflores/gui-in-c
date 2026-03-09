@@ -1,0 +1,81 @@
+diff --git a/extension/download_qt.bzl b/extension/download_qt.bzl
+index 869b45a..2f2c785 100644
+--- a/extension/download_qt.bzl
++++ b/extension/download_qt.bzl
+@@ -22,6 +22,7 @@ _PATHS_6_8_3 = {
+     "linux": "linux_gcc_64",
+     "win64_mingw": "mingw_64",
+     "win64_msvc2022": "win64_msvc2022_64",
++    "win64_llvm_mingw": "win64_llvm_mingw"
+ }
+ 
+ def _get_paths_for_version(version):
+diff --git a/extension/qt/6.8.3/windows_x86_64.BUILD b/extension/qt/6.8.3/windows_x86_64.BUILD
+index a71ca09..6e82877 100644
+--- a/extension/qt/6.8.3/windows_x86_64.BUILD
++++ b/extension/qt/6.8.3/windows_x86_64.BUILD
+@@ -3,8 +3,8 @@ load("@rules_cc//cc:cc_library.bzl", "cc_library")
+ load("@rules_qt//:qt_libraries.bzl", "QT_LIBRARIES")
+ 
+ # Create a mapping of available libraries by checking what .lib files exist
+-_available_libs = glob(["lib/Qt6*.lib"])
+-_available_lib_names = [lib.replace("lib/", "").replace(".lib", "") for lib in _available_libs]
++_available_libs = glob(["lib/*Qt6*.a"])
++_available_lib_names = [lib.replace("lib/", "").replace(".a", "") for lib in _available_libs]
+ 
+ [
+     cc_import(
+@@ -13,7 +13,7 @@ _available_lib_names = [lib.replace("lib/", "").replace(".lib", "") for lib in _
+             ["include/%s/**" % include_folder],
+             allow_empty = True,
+         ),
+-        interface_library = "lib/%s.lib" % library_name,
++        interface_library = "lib/%s.a" % library_name,
+         shared_library = "bin/%s.dll" % library_name,
+         target_compatible_with = ["@platforms//os:windows"],
+     )
+diff --git a/extension/qt_modules.bzl b/extension/qt_modules.bzl
+index b04e34f..054323e 100644
+--- a/extension/qt_modules.bzl
++++ b/extension/qt_modules.bzl
+@@ -433,33 +433,33 @@ QT_MODULES = {
+     "windows": {
+         "6.4.0": {
+             "qtbase": {
+-                "url": QT_BASE_DOWNLOAD_URL + "windows_x86/desktop/qt6_640/qt.qt6.640.win64_msvc2022_64/6.4.0-0-202209270704qtbase-Windows-Windows_11_21H2-MSVC2022-Windows-Windows_11_21H2-X86_64.7z",
++                "url": QT_BASE_DOWNLOAD_URL + "windows_x86/desktop/qt6_640/qt.qt6.640.win64_llvm_mingw/6.4.0-0-202209270704qtbase-Windows-Windows_11_21H2-MSVC2022-Windows-Windows_11_21H2-X86_64.7z",
+                 "sha256": "",
+             },
+             "qtdeclarative": {
+-                "url": QT_BASE_DOWNLOAD_URL + "windows_x86/desktop/qt6_640/qt.qt6.640.win64_msvc2022_64/6.4.0-0-202209270704qtdeclarative-Windows-Windows_11_21H2-MSVC2022-Windows-Windows_11_21H2-X86_64.7z",
++                "url": QT_BASE_DOWNLOAD_URL + "windows_x86/desktop/qt6_640/qt.qt6.640.win64_llvm_mingw/6.4.0-0-202209270704qtdeclarative-Windows-Windows_11_21H2-MSVC2022-Windows-Windows_11_21H2-X86_64.7z",
+                 "sha256": "",
+             },
+             "qtsvg": {
+-                "url": QT_BASE_DOWNLOAD_URL + "windows_x86/desktop/qt6_640/qt.qt6.640.win64_msvc2022_64/6.4.0-0-202209270704qtsvg-Windows-Windows_11_21H2-MSVC2022-Windows-Windows_11_21H2-X86_64.7z",
++                "url": QT_BASE_DOWNLOAD_URL + "windows_x86/desktop/qt6_640/qt.qt6.640.win64_llvm_mingw/6.4.0-0-202209270704qtsvg-Windows-Windows_11_21H2-MSVC2022-Windows-Windows_11_21H2-X86_64.7z",
+                 "sha256": "",
+             },
+         },
+         "6.8.3": {
+             "qtbase": {
+-                "url": QT_BASE_DOWNLOAD_URL + "windows_x86/desktop/qt6_683/qt6_683/qt.qt6.683.win64_msvc2022_64/6.8.3-0-202503201308qtbase-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z",
++                "url": QT_BASE_DOWNLOAD_URL + "windows_x86/desktop/qt6_683/qt6_683/qt.qt6.683.win64_llvm_mingw/6.8.3-202503201308qtbase-Windows-Windows_11_23H2-Clang-Windows-Windows_11_23H2-X86_64.7z",
+                 "sha256": "",
+             },
+             "qtdeclarative": {
+-                "url": QT_BASE_DOWNLOAD_URL + "windows_x86/desktop/qt6_683/qt6_683/qt.qt6.683.win64_msvc2022_64/6.8.3-0-202503201308qtdeclarative-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z",
++                "url": QT_BASE_DOWNLOAD_URL + "windows_x86/desktop/qt6_683/qt6_683/qt.qt6.683.win64_llvm_mingw/6.8.3-202503201308qtdeclarative-Windows-Windows_11_23H2-Clang-Windows-Windows_11_23H2-X86_64.7z",
+                 "sha256": "",
+             },
+             "qtsvg": {
+-                "url": QT_BASE_DOWNLOAD_URL + "windows_x86/desktop/qt6_683/qt6_683/qt.qt6.683.win64_msvc2022_64/6.8.3-0-202503201308qtsvg-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z",
++                "url": QT_BASE_DOWNLOAD_URL + "windows_x86/desktop/qt6_683/qt6_683/qt.qt6.683.win64_llvm_mingw/6.8.3-202503201308qtsvg-Windows-Windows_11_23H2-Clang-Windows-Windows_11_23H2-X86_64.7z",
+                 "sha256": "",
+             },
+             "qt5compat": {
+-                "url": QT_BASE_DOWNLOAD_URL + "windows_x86/desktop/qt6_683/qt6_683/qt.qt6.683.addons.qt5compat.win64_msvc2022_64/6.8.3-0-202503201308qt5compat-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z",
++                "url": QT_BASE_DOWNLOAD_URL + "windows_x86/desktop/qt6_683/qt6_683/qt.qt6.683.addons.qt5compat.win64_llvm_mingw/6.8.3-202503201308qt5compat-Windows-Windows_11_23H2-Clang-Windows-Windows_11_23H2-X86_64.7z",
+                 "sha256": "",
+             },
+         },

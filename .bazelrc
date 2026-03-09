@@ -68,6 +68,7 @@ common:windows --enable_runfiles # https://github.com/bazelbuild/bazel/issues/88
 common:linux --per_file_copt='external/llvm.*@-Wno-error,-Wno-pedantic'
 common:linux --host_per_file_copt='external/llvm.*l@-Wno-error,-Wno-pedantic'
 
+
 # XXX: this doesn't work as intended, but we'll keep it here - for both Windows AND Linux
 common --per_file_copt='external/rules_qt.*l@-Wno-error,-Wno-pedantic'
 common --host_per_file_copt='external/rules_qt.*l@-Wno-error,-Wno-pedantic'
