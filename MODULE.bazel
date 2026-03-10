@@ -12,6 +12,9 @@ single_version_override(
     patches = ["bazel/patches/rules_cc-windows_support.patch"],  # Add Windows support, patch of https://github.com/bazel-contrib/toolchains_llvm/pull/642
 )
 
+cc_configure = use_extension("@rules_cc//cc:extensions.bzl", "cc_configure_extension")
+use_repo(cc_configure, "local_config_cc")
+
 # https://github.com/bazelbuild/platforms
 bazel_dep(name = "platforms", version = "1.0.0")
 
@@ -43,8 +46,6 @@ bazel_dep(name = "rules_qt")
 git_override(
     module_name = "rules_qt",
     commit = "a986944a1f0eb0aa5e5fedafdf3ac72577f5c628",
-    patch_strip = 1,
-    patches = ["bazel/patches/rules_qt6-llvm.patch"],
     remote = "https://github.com/Vertexwahn/rules_qt6.git",
 )
 
@@ -62,7 +63,7 @@ qt.install(
     build_file = "@rules_qt//extension:qt/6.8.3/windows_x86_64.BUILD",
     os = "windows",
     version = "6.8.3",
-    windows_architecture = "win64_llvm_mingw",
+    windows_architecture = "win64_msvc2022",
 )
 use_repo(
     qt,

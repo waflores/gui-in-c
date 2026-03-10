@@ -44,22 +44,22 @@ common:windows --enable_runfiles # https://github.com/bazelbuild/bazel/issues/88
 # Visual Studio 2022
 ## NOTE: We need to have WSL running in the background for some of the compilation process
 # common:windows --define compiler=vs2022
-# common:windows --cxxopt=/std:c++20  # Qt requires a C++17 compiler, and a suitable value for __cplusplus.
-# common:windows --cxxopt=/Zc:__cplusplus #  On MSVC, you must pass the /Zc:__cplusplus option to the compiler.
-# common:windows --cxxopt=/permissive-  # QtCore/qglobal.h(120): error C2338
-# common:windows --cxxopt=/Z7
-# common:windows --copt=-DWIN32_LEAN_AND_MEAN
-# common:windows --copt=-DNOGDI
-# common:windows --host_copt=-DWIN32_LEAN_AND_MEAN
-# common:windows --host_copt=-DNOGDI
-# common:windows --host_cxxopt=/std:c++23
+common:clang_windows --cxxopt=/std:c++20  # Qt requires a C++17 compiler, and a suitable value for __cplusplus.
+common:clang_windows --cxxopt=/Zc:__cplusplus #  On MSVC, you must pass the /Zc:__cplusplus option to the compiler.
+common:clang_windows --cxxopt=/permissive-  # QtCore/qglobal.h(120): error C2338
+common:clang_windows --cxxopt=/Z7
+common:clang_windows --copt=-DWIN32_LEAN_AND_MEAN
+common:clang_windows --copt=-DNOGDI
+common:clang_windows --host_copt=-DWIN32_LEAN_AND_MEAN
+common:clang_windows --host_copt=-DNOGDI
+common:clang_windows --host_cxxopt=/std:c++23
 
 
 ###### This block of code works when we have rules_cc local_config_cc enabled
 # As of bazel 7, toolchain resolution is enabled by default, so we need to define a platform for
 # the clang-cl build.
-# build:windows --extra_toolchains=@local_config_cc//:cc-toolchain-x64_windows-clang-cl
-# build:windows --extra_execution_platforms=//:x64_windows-clang-cl
+build:clang_windows --extra_toolchains=@local_config_cc//:cc-toolchain-x64_windows-clang-cl
+build:clang_windows --extra_execution_platforms=//:x64_windows-clang-cl
 ###### End block of rules_cc local_config_cc enablement
 
 # We need to turn off pedantic copts for LLVM by Source on Windows (or on MinGW)

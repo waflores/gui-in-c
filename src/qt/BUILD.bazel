@@ -1,5 +1,7 @@
 load("@rules_qt//:qt.bzl", "qt_cc_binary")
 
+# Enable the toolchain using these flags:
+
 # XXX: This doesn't work with nixpkgs
 qt_cc_binary(
     name = "helloworld",
