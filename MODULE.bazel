@@ -24,7 +24,8 @@ bazel_dep(name = "glib", version = "2.82.2.bcr.8")
 
 # This LLVM toolchain provides a cross platform Hermetic C/C++ compiler
 # https://github.com/cerisier/toolchains_llvm_bootstrapped
-bazel_dep(name = "llvm", version = "0.6.5")
+bazel_dep(name = "llvm", version = "0.6.7")
+git_override(module_name = "llvm", remote = "https://github.com/cerisier/toolchains_llvm_bootstrapped.git", commit = "3bb4e73e7f504aa8d14304da924e096d1d6ab88d")
 
 register_toolchains("@llvm//toolchain:all")
 

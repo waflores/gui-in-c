@@ -44,6 +44,7 @@ common:windows --enable_runfiles # https://github.com/bazelbuild/bazel/issues/88
 # Visual Studio 2022
 ## NOTE: We need to have WSL running in the background for some of the compilation process
 # common:windows --define compiler=vs2022
+common:clang_windows --repo_env=BAZEL_DO_NOT_DETECT_CPP_TOOLCHAIN=0
 common:clang_windows --cxxopt=/std:c++20  # Qt requires a C++17 compiler, and a suitable value for __cplusplus.
 common:clang_windows --cxxopt=/Zc:__cplusplus #  On MSVC, you must pass the /Zc:__cplusplus option to the compiler.
 common:clang_windows --cxxopt=/permissive-  # QtCore/qglobal.h(120): error C2338
@@ -53,7 +54,6 @@ common:clang_windows --copt=-DNOGDI
 common:clang_windows --host_copt=-DWIN32_LEAN_AND_MEAN
 common:clang_windows --host_copt=-DNOGDI
 common:clang_windows --host_cxxopt=/std:c++23
-
 
 ###### This block of code works when we have rules_cc local_config_cc enabled
 # As of bazel 7, toolchain resolution is enabled by default, so we need to define a platform for
