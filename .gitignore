@@ -58,3 +58,6 @@ bazel-*
 
 # Diagrams
 /diagrams/
+
+# Ignore user bazel config
+user.bazelrc

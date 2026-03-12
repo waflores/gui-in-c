@@ -25,7 +25,7 @@ bazel_dep(name = "glib", version = "2.82.2.bcr.8")
 # This LLVM toolchain provides a cross platform Hermetic C/C++ compiler
 # https://github.com/cerisier/toolchains_llvm_bootstrapped
 bazel_dep(name = "llvm", version = "0.6.7")
-git_override(module_name = "llvm", remote = "https://github.com/cerisier/toolchains_llvm_bootstrapped.git", commit = "3bb4e73e7f504aa8d14304da924e096d1d6ab88d")
+git_override(module_name = "llvm", remote = "https://github.com/cerisier/toolchains_llvm_bootstrapped.git", commit = "e0cb05211b9b85b5aa4e24b758c035b64eeb7ac3")
 
 register_toolchains("@llvm//toolchain:all")
 
@@ -126,3 +126,15 @@ archive_override(
 # TODO: we need to have a look at this stuff: https://bazel.build/external/migration
 # https://bazel.build/external/faq
 # https://github.com/bazelbuild/examples/tree/main/bzlmod
+
+bazel_dep(name = "rules_shell", version = "0.6.1")
+git_repository = use_repo_rule(
+    "@bazel_tools//tools/build_defs/repo:git.bzl",
+    "git_repository",
+)
+
+git_repository(
+    name = "bazel_clang_tidy",
+    commit = "c4d35e0d0b838309358e57a2efed831780f85cd0",
+    remote = "https://github.com/erenon/bazel_clang_tidy.git",
+)

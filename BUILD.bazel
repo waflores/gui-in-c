@@ -64,3 +64,8 @@ platform(
     ],
     visibility = ["//visibility:public"],
 )
+
+filegroup(
+    name = "clang_tidy_config",
+    srcs = [".clang-tidy"],
+)
