@@ -51,9 +51,7 @@ common:cl_windows --cxxopt=/Zc:__cplusplus #  On MSVC, you must pass the /Zc:__c
 common:cl_windows --cxxopt=/permissive-  # QtCore/qglobal.h(120): error C2338
 common:cl_windows --cxxopt=/Z7
 common:cl_windows --copt=-DWIN32_LEAN_AND_MEAN
-common:cl_windows --copt=-DNOGDI
 common:cl_windows --host_copt=-DWIN32_LEAN_AND_MEAN
-common:cl_windows --host_copt=-DNOGDI
 common:cl_windows --host_cxxopt=/std:c++23
 
 ###### This block of code works when we have rules_cc local_config_cc enabled
@@ -68,6 +66,7 @@ build:clang_windows --config=cl_windows  # add the CL version of CC Flags
 common:plain_windows --repo_env=BAZEL_DO_NOT_DETECT_CPP_TOOLCHAIN=0
 build:plain_windows --extra_toolchains=@local_config_cc_toolchains//:cc-toolchain-x64_windows
 build:plain_windows --extra_execution_platforms=//:x64_windows-msvc
+build:plain_windows --define compiler=vs2022
 build:plain_windows --config=cl_windows
 
 # Ignore all warnings in third-party code.
